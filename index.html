@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>Makuta - Crown of Excellence</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon-crown.svg">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,900&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <header>
+    <!-- Navigation -->
+    <nav class="lux-nav">
+      <div class="nav-left">
+        <a href="#about">About</a>
+        <a href="#projects">Projects</a>
+        <a href="#blogs">Blogs</a>
+      </div>
+      <div class="nav-center">
+        <a href="index.html"><img src="assets/logo/makuta-logo-white.svg" alt="Makuta Developers Logo" class="nav-logo"></a>
+      </div>
+      <div class="nav-right">
+        <a href="#contact">Contact</a>
+        <a href="#careers">Careers</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Hero Section Carousel -->
+  <section class="hero-carousel">
+    <button class="carousel-btn prev-btn"></button>
+    <div class="carousel-slides">
+      <div class="carousel-slide active">
+        <img src="assets/images/Taranga.png" alt="https://www.makutataranga.com/">
+        <div class="carousel-caption">
+          <h2>Makuta Tarnaga</h2>
+          <p>Luxury redefined. Experience the future of living.</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="assets/images/Horizon.png" alt="https://makutahorizon.com/">
+        <div class="carousel-caption">
+          <h2>Makuta Horizon</h2>
+          <p>Modern architecture meets timeless elegance.</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="assets/images/Nirvana.png" alt="https://www.makutanirvana.in/">
+        <div class="carousel-caption">
+          <h2>Makuta Nirvana</h2>
+          <p>Elevate your lifestyle in Hyderabad’s finest address.</p>
+        </div>
+      </div>
+      <div class="carousel-slide">
+        <img src="assets/images/car4.jpg" alt="Project 4">
+        <div class="carousel-caption">
+          <h2>Makuta Mall</h2>
+          <p>Stay tuned for our next masterpiece.</p>
+        </div>
+      </div>
+    </div>
+    <button class="carousel-btn next-btn"></button>
+    <div class="carousel-indicators">
+      <span class="carousel-dot" data-idx="0"></span>
+      <span class="carousel-dot" data-idx="1"></span>
+      <span class="carousel-dot" data-idx="2"></span>
+      <span class="carousel-dot" data-idx="3"></span>
+      <div class="carousel-progress-bar">
+        <div class="progress-bar-inner"></div>
+      </div>
+    </div>
+    <div id="know-more-tooltip" class="know-more-tooltip">Know More</div>
+  </section>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!-- Floating Bottom Bar -->
+  <div id="floating-bottom-bar" class="floating-bottom-bar">
+    <button class="bar-btn call-btn" title="Call"><span>📞</span> Call</button>
+    <button class="bar-btn whatsapp-btn" title="WhatsApp"><span>💬</span> WhatsApp</button>
+    <!-- <button class="bar-btn chat-btn" title="Chat"><span>💻</span> Chat</button> -->
+    <button class="bar-btn enquiry-btn" title="Enquire"><span>✉️</span> Enquire</button>
+  </div>
+
+
+  <!-- About/Stats Section (Two-Column Partition) -->
+  <section class="about-stats-section">
+    <div class="about-stats-container">
+      <div class="about-stats-left">
+        <div class="about-stats-numbers">
+          <div class="about-stat-block">
+            <span class="about-stat-number gold">38+</span>
+            <span class="about-stat-label">Years of Excellence</span>
+          </div>
+          <div class="about-stat-block">
+            <span class="about-stat-number gold">300+</span>
+            <span class="about-stat-label">Projects Completed</span>
+          </div>
+          <div class="about-stat-block">
+            <span class="about-stat-number gold">100+ Mn</span>
+            <span class="about-stat-label">Sq. Ft Delivered</span>
+          </div>
+          <div class="about-stat-block">
+            <span class="about-stat-number gold">50,000+</span>
+            <span class="about-stat-label">Happy Customers</span>
+          </div>
+        </div>
+      </div>
+      <div class="about-stats-right">
+        <h3 class="about-title gold">ABOUT MAKUTA DEVELOPERS</h3>
+        <p class="about-lead"><b>Forging landmark projects and transformative spaces that inspire.</b> Fueled by a vision of a brighter future, we have been making room for limitless possibilities with each architectural masterpiece.</p>
+        <p class="about-desc">As one of Hyderabad's most revered and prestigious property developers, Makuta has been meticulously shaping the urban real estate landscape. We have carved a distinct niche for ourselves by crafting lifestyle-defining developments in the Residential, Commercial, Retail, Hospitality, and Education sectors. Our visionary real estate concepts have etched an indelible mark on the skyline of Hyderabad and beyond.</p>
+        <a href="#about" class="about-details-link">See Details <span class="arrow">→</span></a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section (tabs for Completed, Under Construction, Upcoming) -->
+  <section id="projects"></section>
+  <!-- About Section -->
+  <section id="about"></section>
+  <!-- Services Section -->
+  <section id="services"></section>
+  <!-- Careers Section -->
+  <section id="careers"></section>
+
+  <script src="assets/js/main.js"></script>
+    <script>
+      // Floating bottom bar fade logic
+      const bottomBar = document.getElementById('floating-bottom-bar');
+      let barTimer;
+      function setBarOpacity(opacity) {
+        bottomBar.style.opacity = opacity;
+      }
+      function resetBarTimer() {
+        setBarOpacity(0.8);
+        clearTimeout(barTimer);
+        barTimer = setTimeout(() => setBarOpacity(0.2), 5000);
+      }
+      bottomBar.addEventListener('mouseenter', () => setBarOpacity(0.8));
+      bottomBar.addEventListener('mouseleave', resetBarTimer);
+      ['mousemove','keydown','scroll','touchstart'].forEach(evt => {
+        window.addEventListener(evt, resetBarTimer);
+      });
+      resetBarTimer();
+    </script>
+  <script>
+    // Navbar scroll hide/show and translucent background after 100vh
+    let lastScroll = 0;
+    const nav = document.querySelector('.lux-nav');
+    window.addEventListener('scroll', () => {
+      const currentScroll = window.pageYOffset;
+      if (currentScroll > lastScroll && currentScroll > 80) {
+        nav.classList.add('hide');
+      } else {
+        nav.classList.remove('hide');
+      }
+      if (currentScroll > window.innerHeight) {
+        nav.classList.add('scrolled');
+      } else {
+        nav.classList.remove('scrolled');
+      }
+      lastScroll = currentScroll;
+    });
+  </script>

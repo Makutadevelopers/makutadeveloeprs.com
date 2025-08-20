@@ -13,21 +13,9 @@
 <body>
 
   <header>
-    <!-- Navigation -->
-    <nav class="lux-nav">
-      <div class="nav-left">
-        <a href="#about">About</a>
-        <a href="#projects">Projects</a>
-        <a href="#blogs">Blogs</a>
-      </div>
-      <div class="nav-center">
-        <a href="index.html"><img src="assets/logo/makuta-logo-white.svg" alt="Makuta Developers Logo" class="nav-logo"></a>
-      </div>
-      <div class="nav-right">
-        <a href="#contact">Contact</a>
-        <a href="#careers">Careers</a>
-      </div>
-    </nav>
+    <!--#include virtual="/components/navbar.html" -->
+    <!-- For static HTML, use JS to inject or use a build tool for includes -->
+    <div id="navbar-include"></div>
   </header>
 
   <!-- Hero Section Carousel -->
@@ -102,21 +90,25 @@
       <div class="about-stats-left">
         <div class="about-stats-numbers">
           <div class="about-stat-block">
-            <span class="about-stat-number gold">38+</span>
+            <span class="about-stat-number gold" data-target="16">0</span>
             <span class="about-stat-label">Years of Excellence</span>
           </div>
           <div class="about-stat-block">
-            <span class="about-stat-number gold">300+</span>
-            <span class="about-stat-label">Projects Completed</span>
+            <span class="about-stat-number gold" data-target="5">0</span>
+            <span class="about-stat-label">Projects Under Construction</span>
           </div>
           <div class="about-stat-block">
-            <span class="about-stat-number gold">100+ Mn</span>
+            <span class="about-stat-number gold" data-target="100" data-suffix="+ Mn">0</span>
             <span class="about-stat-label">Sq. Ft Delivered</span>
           </div>
           <div class="about-stat-block">
-            <span class="about-stat-number gold">50,000+</span>
+            <span class="about-stat-number gold" data-target="50000" data-suffix="+">0</span>
             <span class="about-stat-label">Happy Customers</span>
           </div>
+          <!-- <div class="about-stat-block">
+            <span class="about-stat-number gold" data-target="9">0</span>
+            <span class="about-stat-label">Cities</span>
+          </div> -->
         </div>
       </div>
       <div class="about-stats-right">
@@ -138,6 +130,54 @@
   <section id="careers"></section>
 
   <script src="assets/js/main.js"></script>
+  <script>
+    // Simple JS include for navbar (works for static sites)
+    fetch('components/navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar-include').innerHTML = html;
+      });
+  </script>
+  <script>
+    // Animated number increment for about-stat-number
+    function animateStatNumber(el, target, suffix = '', duration = 1800) {
+      let start = 0;
+      let startTime = null;
+      function animateStep(timestamp) {
+        if (!startTime) startTime = timestamp;
+        const progress = Math.min((timestamp - startTime) / duration, 1);
+        const value = Math.floor(progress * (target - start) + start);
+        el.textContent = value.toLocaleString() + suffix;
+        if (progress < 1) {
+          requestAnimationFrame(animateStep);
+        } else {
+          el.textContent = target.toLocaleString() + suffix;
+        }
+      }
+      requestAnimationFrame(animateStep);
+    }
+    function runStatAnimations() {
+      document.querySelectorAll('.about-stat-number').forEach(el => {
+        const target = parseInt(el.getAttribute('data-target'), 10);
+        const suffix = el.getAttribute('data-suffix') || '+';
+        animateStatNumber(el, target, suffix);
+      });
+    }
+    // Run when section is in view
+    let statsAnimated = false;
+    function onScrollStats() {
+      const section = document.querySelector('.about-stats-section');
+      if (!section || statsAnimated) return;
+      const rect = section.getBoundingClientRect();
+      if (rect.top < window.innerHeight - 80) {
+        runStatAnimations();
+        statsAnimated = true;
+        window.removeEventListener('scroll', onScrollStats);
+      }
+    }
+    window.addEventListener('scroll', onScrollStats);
+    onScrollStats();
+  </script>
     <script>
       // Floating bottom bar fade logic
       const bottomBar = document.getElementById('floating-bottom-bar');

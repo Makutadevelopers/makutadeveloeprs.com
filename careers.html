@@ -1,0 +1,111 @@
+
+    
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Careers - Makuta Developers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/careers-custom.css">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon-crown.svg">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,900&display=swap" rel="stylesheet">
+  <style>
+    
+    .lux-nav {
+        background: rgba(0, 0, 0, 0.7)!important;
+        backdrop-filter: blur(8px);
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div id="navbar-include"></div>
+    <script>
+      fetch('components/navbar.html').then(res => res.text()).then(html => {
+        document.getElementById('navbar-include').innerHTML = html;
+      });
+    </script>
+  </header>
+  <main>
+    <section class="makuta-hero-joinus">
+  <video class="makuta-hero-bg-video makuta-animate-on-scroll" autoplay loop muted playsinline poster="assets/images/Horizon.png">
+        <source src="https://www.w3schools.com/howto/rain.mp4" type="video/mp4">
+      </video>
+      <div class="makuta-hero-content">
+  <img src="assets/images/apple-logo-mimic.svg" alt="Makuta Logo" class="makuta-hero-logo makuta-animate-on-scroll" />
+  <h1 class="makuta-hero-title makuta-animate-on-scroll">Join us. Be you.</h1>
+  <div class="makuta-hero-btn-group">
+    <button class="makuta-hero-btn makuta-animate-on-scroll">Watch the film</button>
+    <button class="makuta-hero-btn makuta-hero-btn-secondary makuta-animate-on-scroll" onclick="document.querySelector('.makuta-jobs-list-section').scrollIntoView({behavior: 'smooth'});">Current Openings</button>
+  </div>
+      </div>
+    
+    </section>
+
+    <!-- 100vh Image Section with Overlaid Text -->
+    <section class="makuta-careers-image-section">
+  <div class="makuta-careers-image-bg makuta-animate-on-scroll"></div>
+  <div class="makuta-careers-image-content left-align makuta-animate-on-scroll">
+        <h2>JOIN OUR LEGACY</h2>
+        <hr class="makuta-careers-image-hr">
+        <p>With more than 200 employees today, MAKUTA is a strong partner to the industry and fulfills almost every wish of its exclusive customers. Building at the highest technical level, combined with masterful workmanship and the finest materials – that is the quality standard of the MAKUTA companies.</p>
+      </div>
+    </section>
+
+    <!-- Job Openings Section -->
+    <section class="makuta-jobs-list-section">
+  <div class="makuta-jobs-list-title makuta-animate-on-scroll">8 OPEN JOB POSITIONS</div>
+  <div class="makuta-jobs-list mansory-style">
+        <div class="makuta-job-row-mansory">
+          <div class="makuta-job-row-mansory makuta-animate-on-scroll">
+            <div class="makuta-job-location">Germany, Neusorg</div>
+            <div class="makuta-job-title">Lagerist / Lagermitarbeiter / Operative Warehouse (m/w/d) Vollzeit</div>
+            <a class="makuta-job-details-btn" href="#" target="_blank">Details</a>
+          </div>
+        </div>
+        <div class="makuta-job-row-mansory">
+          <div class="makuta-job-row-mansory makuta-animate-on-scroll">
+            <div class="makuta-job-location">Germany, Brand</div>
+            <div class="makuta-job-title">Elektrotechniker / Mechatroniker (m/w) Vollzeit</div>
+            <a class="makuta-job-details-btn" href="#" target="_blank">Details</a>
+          </div>
+        </div>
+        <div class="makuta-job-row-mansory">
+          <div class="makuta-job-row-mansory makuta-animate-on-scroll">
+            <div class="makuta-job-location">Germany, Brand</div>
+            <div class="makuta-job-title">Lackierer</div>
+            <a class="makuta-job-details-btn" href="#" target="_blank">Details</a>
+          </div>
+        </div>
+        <div class="makuta-job-row-mansory">
+          <div class="makuta-job-row-mansory makuta-animate-on-scroll">
+            <div class="makuta-job-location">Czech Republic</div>
+            <div class="makuta-job-title">Production supervisor</div>
+            <a class="makuta-job-details-btn" href="#" target="_blank">Details</a>
+          </div>
+        </div>
+        <div class="makuta-job-row-mansory">
+          <div class="makuta-job-row-mansory makuta-animate-on-scroll">
+            <div class="makuta-job-location">Germany, Brand</div>
+            <div class="makuta-job-title">Photoshop Expert</div>
+            <a class="makuta-job-details-btn" href="#" target="_blank">Details</a>
+          </div>
+        </div>
+        <div class="makuta-job-row-mansory">
+          <div class="makuta-job-row-mansory makuta-animate-on-scroll">
+            <div class="makuta-job-location">Germany, Brand</div>
+            <div class="makuta-job-title">Kraftfahrzeugmechatroniker</div>
+            <a class="makuta-job-details-btn" href="#" target="_blank">Details</a>
+          </div>
+        </div>
+        <div class="makuta-job-row-mansory">
+          <div class="makuta-job-row-mansory makuta-animate-on-scroll">
+            <div class="makuta-job-location">Germany, Brand</div>
+            <div class="makuta-job-title">Fahrzeuglackierer (Vollzeit)</div>
+            <a class="makuta-job-details-btn" href="#" target="_blank">Details</a>
+          </div>
+        </div>
+      </div>
+    </section>
+    </body>

@@ -1,3 +1,479 @@
+/* --- MANSORY CONTACT INFO CENTER --- */
+.mansory-contact-info-center {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 64px;
+  margin: 32px 0 0 0;
+}
+.info-block {
+  text-align: center;
+}
+.info-label {
+  font-size: 0.95rem;
+  color: #888;
+  font-weight: 200;
+  letter-spacing: 0.12em;
+  margin-bottom: 4px;
+  text-transform: uppercase;
+}
+.info-value {
+  font-size: 1.18rem;
+  color: #757575;
+  font-weight: 400;
+  letter-spacing: 0.04em;
+}
+.info-value a {
+  color: #757575;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.info-divider {
+  width: 1px;
+  height: 48px;
+  background: linear-gradient(to bottom, #fff 0%, #888 100%);
+  opacity: 0.4;
+  margin: 0 32px;
+  align-self: center;
+}
+@media (max-width: 700px) {
+  .mansory-contact-info-center {
+    flex-direction: column;
+    gap: 18px;
+  }
+  .info-divider {
+    width: 40px;
+    height: 1px;
+    margin: 18px 0;
+    background: linear-gradient(to right, #fff 0%, #888 100%);
+  }
+}
+.info-value a:hover {
+  color: #5e5e5e;
+}
+.contact-hero {
+  /* background: linear-gradient(180deg, #000000 60%, #232323 100%); */
+  background: #ffffff;
+  color: #fff;
+  padding: 80px 0 48px 0;
+  text-align: center;
+}
+.contact-hero h1 {
+  font-size: 3.2rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 300;
+  letter-spacing: 0.08em;
+  margin-bottom: 18px;
+  color: #fff;
+  text-transform: uppercase;
+}
+.contact-lead {
+  font-size: 1.18rem;
+  color: #fff;
+  font-weight: 200;
+  margin-bottom: 0;
+}
+/* --- MANSORY CONTACT PAGE STYLE --- */
+.mansory-contact {
+  background: #fff;
+  min-height: 100vh;
+  padding-top: 120px;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.mansory-contact-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 64px;
+  max-width: 1000px;
+  margin: 0 auto 48px auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 24px #0001;
+  padding: 48px 40px;
+}
+.mansory-contact-left {
+  flex: 1 1 260px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  min-width: 220px;
+  max-width: 320px;
+}
+.mansory-contact-left h2 {
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #C9B037;
+  margin-bottom: 18px;
+}
+.contact-info-block {
+  margin-bottom: 12px;
+}
+.contact-info-label {
+  font-size: 0.98rem;
+  color: #888;
+  font-weight: 200;
+  margin-bottom: 2px;
+}
+.contact-info-value {
+  font-size: 1.08rem;
+  color: #232323;
+  font-weight: 400;
+}
+.contact-info-value a {
+  color: #232323;
+  text-decoration: none;
+  transition: color 0.2s;
+}
+.contact-info-value a:hover {
+  color: #C9B037;
+}
+.mansory-contact-form {
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 320px;
+}
+.mansory-contact-form .form-row {
+  display: flex;
+  flex-direction: column;
+}
+.mansory-contact-form input,
+.mansory-contact-form textarea {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 1.08rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 200;
+  background: #fafafa;
+  color: #232323;
+  transition: border 0.2s;
+}
+.mansory-contact-form input:focus,
+.mansory-contact-form textarea:focus {
+  border: 1.5px solid #C9B037;
+  outline: none;
+}
+.mansory-contact-form button {
+  background: #C9B037;
+  color: #232323;
+  border: none;
+  border-radius: 8px;
+  padding: 14px 0;
+  font-size: 1.12rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: background 0.2s, color 0.2s;
+}
+.mansory-contact-form button:hover {
+  background: #a28920;
+  color: #fff;
+}
+.contact-hero h1 {
+  font-size: 2.6rem;
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  color: #232323;
+  margin-bottom: 12px;
+}
+.contact-lead {
+  font-size: 1.15rem;
+  color: #555;
+  font-weight: 200;
+}
+@media (max-width: 900px) {
+  .mansory-contact-section {
+    flex-direction: column;
+    gap: 32px;
+    padding: 24px 8px;
+  }
+  .mansory-contact-left {
+    max-width: 100%;
+    align-items: center;
+    text-align: center;
+  }
+  .mansory-contact-form {
+    min-width: 0;
+  }
+}
+/* --- CONTACT & CAREERS PAGE (Mansory Style) --- */
+.contact-main, .careers-main {
+  background: #fff;
+  min-height: 100vh;
+  padding-top: 120px;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.contact-hero, .careers-hero {
+  text-align: center;
+  margin-bottom: 32px;
+}
+.contact-hero h1, .careers-hero h1 {
+  font-size: 2.6rem;
+  font-weight: 200;
+  letter-spacing: 0.04em;
+  color: #232323;
+  margin-bottom: 12px;
+}
+.contact-hero p, .careers-hero p {
+  font-size: 1.15rem;
+  color: #555;
+  font-weight: 200;
+}
+.contact-form-section, .careers-form-section {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 48px;
+  max-width: 900px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 18px;
+  box-shadow: 0 2px 24px #0001;
+  padding: 40px 32px;
+}
+.contact-form, .careers-form {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  min-width: 320px;
+  flex: 1 1 320px;
+}
+.contact-form label, .careers-form label {
+  font-size: 1.02rem;
+  color: #232323;
+  font-weight: 200;
+  margin-bottom: 6px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.contact-form input, .contact-form textarea,
+.careers-form input, .careers-form textarea {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 12px 14px;
+  font-size: 1.05rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 200;
+  background: #fafafa;
+  color: #232323;
+  transition: border 0.2s;
+}
+.contact-form input:focus, .contact-form textarea:focus,
+.careers-form input:focus, .careers-form textarea:focus {
+  border: 1.5px solid #C9B037;
+  outline: none;
+}
+.contact-form button, .careers-form button {
+  background: transparent;
+  color: #6e6e6e;
+  border: 2px solid #bfc0c0;
+  border-radius: 8px;
+  padding: 14px 0;
+  font-size: 1.12rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  box-shadow: none;
+}
+.contact-form button:hover, .careers-form button:hover {
+  border-color: #6e6e6e;
+  color: #232323;
+  background: #f5f5f5;
+}
+.contact-info, .careers-info {
+  flex: 1 1 220px;
+  margin-left: 24px;
+  font-size: 1.05rem;
+  color: #232323;
+  font-weight: 200;
+}
+.contact-info h2, .careers-info h2 {
+  font-size: 1.18rem;
+  font-weight: 600;
+  color: #C9B037;
+  margin-bottom: 12px;
+}
+.careers-info ul {
+  padding-left: 18px;
+  margin: 0;
+}
+.careers-info li {
+  margin-bottom: 8px;
+  font-size: 1.02rem;
+  font-weight: 200;
+}
+
+.contact-parallax-section {
+  display: flex;
+  justify-content: center;
+  align-items: stretch;
+  min-height: 80vh;
+  background: #fff;
+  position: relative;
+  z-index: 1;
+}
+.contact-cards {
+  display: flex;
+  width: 100%;
+  max-width: 1100px;
+  box-shadow: 0 2px 24px #0001;
+  border-radius: 18px;
+  overflow: hidden;
+  margin: 48px auto;
+  background: #fff;
+}
+.contact-card {
+  flex: 1 1 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+}
+.contact-image-card {
+  background: #111;
+  min-height: 480px;
+  position: relative;
+  overflow: hidden;
+}
+.parallax-image {
+  width: 100%;
+  height: 100%;
+  background: url('assets/images/contact-parallax.jpg') center center / cover no-repeat fixed;
+  will-change: background-position;
+  transition: background-position 0.2s;
+}
+.contact-form-card {
+  background: #fff;
+  padding: 48px 36px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.mansory-contact-form h3 {
+  font-size: 1.25rem;
+  font-weight: 400;
+  margin-bottom: 24px;
+  color: #232323;
+  text-align: left;
+}
+.mansory-contact-form .form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  margin-bottom: 18px;
+}
+.mansory-contact-form .form-row.two-col {
+  flex-direction: row;
+  gap: 18px;
+}
+.mansory-contact-form input,
+.mansory-contact-form select,
+.mansory-contact-form textarea {
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  padding: 14px 16px;
+  font-size: 1.08rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 200;
+  background: #fafafa;
+  color: #232323;
+  transition: border 0.2s;
+  width: 100%;
+}
+.mansory-contact-form input:focus,
+.mansory-contact-form select:focus,
+.mansory-contact-form textarea:focus {
+  border: 1.5px solid #C9B037;
+  outline: none;
+}
+.mansory-contact-form button {
+  background: transparent;
+  color: #6e6e6e;
+  border: 2px solid #bfc0c0;
+  border-radius: 8px;
+  padding: 14px 0;
+  font-size: 1.12rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  box-shadow: none;
+}
+.mansory-contact-form button:hover {
+  border-color: #6e6e6e;
+  color: #232323;
+  background: #f5f5f5;
+}
+.contact-reveal-section {
+  opacity: 0;
+  transform: translateY(40px);
+  pointer-events: none;
+  text-align: center;
+  padding: 64px 0 48px 0;
+  background: #fff;
+  transition: opacity 0.7s, transform 0.7s;
+}
+.contact-reveal-section.revealed {
+  opacity: 1;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.btn-gold {
+  display: inline-block;
+  background: transparent;
+  color: #6e6e6e;
+  border: 2px solid #bfc0c0;
+  border-radius: 8px;
+  padding: 12px 32px;
+  font-size: 1.08rem;
+  font-weight: 600;
+  text-decoration: none;
+  margin-top: 18px;
+  transition: border-color 0.2s, color 0.2s, background 0.2s;
+  box-shadow: none;
+}
+.btn-gold:hover {
+  border-color: #6e6e6e;
+  color: #232323;
+  background: #f5f5f5;
+}
+@media (max-width: 900px) {
+  .contact-cards {
+    flex-direction: column;
+    border-radius: 0;
+  }
+  .contact-image-card, .contact-form-card {
+    min-height: 220px;
+    padding: 24px 10px;
+  }
+  .contact-form-card {
+    padding: 32px 10px;
+  }
+  .mansory-contact-form .form-row.two-col {
+    flex-direction: column;
+    gap: 0;
+  }
+}
+@media (max-width: 900px) {
+  .contact-form-section, .careers-form-section {
+    flex-direction: column;
+    gap: 24px;
+    padding: 24px 8px;
+  }
+  .contact-info, .careers-info {
+    margin-left: 0;
+    margin-top: 18px;
+    text-align: center;
+  }
+}
 /* --- ABOUT STATS SECTION --- */
 .about-stats-section {
   background: #fff url('../images/parallax-bg.jpg') center center / cover fixed no-repeat;

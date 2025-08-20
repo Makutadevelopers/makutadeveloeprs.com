@@ -1,3 +1,7 @@
+ .lux-nav {
+        background: rgba(0, 0, 0, 0.7)!important;
+        backdrop-filter: blur(10px);
+    }
 /* --- MANSORY CONTACT INFO CENTER --- */
 .mansory-contact-info-center {
   display: flex;

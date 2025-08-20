@@ -15,8 +15,32 @@
       .lux-nav {
         background: rgba(0, 0, 0, 0.7)!important;
         backdrop-filter: blur(8px);
-    }
+      }
+      .popup-notification {
+        position: fixed;
+        top: 32px;
+        left: 50%;
+        transform: translateX(-50%);
+        background: #222;
+        color: #fff;
+        padding: 1.1rem 2.2rem;
+        border-radius: 8px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+        font-size: 1.1rem;
+        font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+        z-index: 9999;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity 0.3s;
+      }
+      .popup-notification.show {
+        opacity: 1;
+        pointer-events: auto;
+      }
+      .popup-notification.success { background: #2e7d32; color: #fff; }
+      .popup-notification.error { background: #b71c1c; color: #fff; }
     </style>
+    <div id="popup-notification" class="popup-notification"></div>
   </header>
   <main class="contact-main mansory-contact">
     <section class="contact-hero">
@@ -101,15 +125,20 @@
 
   </main>
   <script>
-    // Contact form submission with only available fields mapped and inline status message
+    // Contact form submission with popup notification
     document.addEventListener('DOMContentLoaded', function() {
       const form = document.querySelector('.mansory-contact-form');
-      const statusMsg = document.getElementById('form-status-message');
-      if (form && statusMsg) {
+      const popup = document.getElementById('popup-notification');
+      function showPopup(message, type) {
+        popup.textContent = message;
+        popup.className = 'popup-notification show ' + (type === 'success' ? 'success' : 'error');
+        setTimeout(() => {
+          popup.classList.remove('show');
+        }, 3500);
+      }
+      if (form && popup) {
         form.addEventListener('submit', async function(e) {
           e.preventDefault();
-          statusMsg.textContent = '';
-          statusMsg.style.color = '';
           const data = {
             property: "Makuta",
             name: form.first_name.value + (form.last_name.value ? (" " + form.last_name.value) : ""),
@@ -128,16 +157,13 @@
               body: JSON.stringify(data)
             });
             if (response.ok) {
-              statusMsg.textContent = 'Thank you! Your message has been sent.';
-              statusMsg.style.color = '#4BB543';
+              showPopup('Thank you! Your message has been sent.', 'success');
               form.reset();
             } else {
-              statusMsg.textContent = 'There was an error sending your message. Please try again later.';
-              statusMsg.style.color = '#D8000C';
+              showPopup('There was an error sending your message. Please try again later.', 'error');
             }
           } catch (err) {
-            statusMsg.textContent = 'There was an error sending your message. Please try again later.';
-            statusMsg.style.color = '#D8000C';
+            showPopup('There was an error sending your message. Please try again later.', 'error');
           }
         });
       }

@@ -198,8 +198,8 @@ html, body {
 /* .makuta-job-details-btn:hover {
 	background: #ffffff;
 	color: #181818;
-	border: 0.1px solid #d8d8d8; */
-}
+	border: 0.1px solid #d8d8d8; }*/
+
 @media (max-width: 900px) {
 	.makuta-jobs-list.mansory-style { max-width: 98vw; }
 	.makuta-job-row-mansory { flex-direction: column; align-items: flex-start; padding: 18px 10px; }

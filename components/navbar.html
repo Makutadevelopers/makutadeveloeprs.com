@@ -1,4 +1,31 @@
 <nav class="lux-nav">
+  <div class="nav-hamburger" id="nav-hamburger">
+    <span></span><span></span><span></span>
+  </div>
+  <div class="nav-overlay" id="nav-overlay">
+    <div class="nav-overlay-content">
+      <a href="index.html">Home</a>
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <div class="nav-submenu">
+        <a href="projects/completed.html">Completed Projects</a>
+        <a href="projects/under-construction.html">Under Construction</a>
+        <a href="projects/upcoming.html">Upcoming Projects</a>
+      </div>
+      <a href="blog.html">Blogs</a>
+      <div class="nav-submenu">
+        <a href="blogpostings/news-1.html">News 1</a>
+        <a href="blogpostings/news-2.html">News 2</a>
+        <a href="blogpostings/news-3.html">News 3</a>
+      </div>
+      <a href="contact.html">Contact</a>
+      <a href="careers.html">Careers</a>
+      <div class="nav-submenu">
+        <a href="jobpostings/job-detail.html">Job Detail</a>
+        <a href="jobpostings/warehouse-operative.html">Warehouse Operative</a>
+      </div>
+    </div>
+  </div>
   <div class="nav-left">
     <a href="#about">About</a>
     <a href="#projects">Projects</a>
@@ -12,3 +39,20 @@
     <a href="careers.html">Careers</a>
   </div>
 </nav>
+<script>
+// Hamburger menu toggle
+const hamburger = document.getElementById('nav-hamburger');
+const overlay = document.getElementById('nav-overlay');
+hamburger.addEventListener('click', () => {
+  overlay.classList.toggle('open');
+  hamburger.classList.toggle('open');
+  document.body.classList.toggle('nav-open');
+});
+overlay.addEventListener('click', (e) => {
+  if (e.target === overlay) {
+    overlay.classList.remove('open');
+    hamburger.classList.remove('open');
+    document.body.classList.remove('nav-open');
+  }
+});
+</script>

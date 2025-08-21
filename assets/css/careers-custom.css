@@ -1,3 +1,111 @@
+/* Job Detail Split Layout */
+.job-detail-split {
+	display: flex;
+	height: 100vh;
+	width: 100vw;
+	overflow: hidden;
+}
+.job-detail-left {
+	background: #111;
+	color: #fff;
+		width: 50vw;
+		min-width: 0;
+		max-width: none;
+	display: flex;
+	flex-direction: column;
+	align-items: flex-start;
+	justify-content: flex-start;
+	position: fixed;
+	height: 100vh;
+	z-index: 2;
+	padding: 40px 32px 0 32px;
+	box-sizing: border-box;
+}
+.job-detail-back-btn {
+	background: none;
+	border: 1.5px solid #fff;
+	color: #fff;
+	font-size: 1.1rem;
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+	border-radius: 6px;
+	padding: 0.5rem 1.5rem;
+	cursor: pointer;
+	margin-bottom: 2.5rem;
+	transition: background 0.2s, color 0.2s;
+}
+.job-detail-back-btn:hover {
+	background: #fff;
+	color: #181818;
+}
+.job-detail-right {
+	background: #fff;
+	color: #181818;
+		margin-left: 50vw;
+		width: 50vw;
+	height: 100vh;
+	overflow-y: auto;
+	padding: 48px 6vw 48px 4vw;
+	box-sizing: border-box;
+	font-family: 'Montserrat', Arial, Helvetica, sans-serif;
+}
+.job-detail-title {
+	font-size: 2.2rem;
+	font-weight: 700;
+	margin-bottom: 1.2rem;
+}
+.job-detail-meta {
+	color: #888;
+	font-size: 1.1rem;
+	margin-bottom: 2.2rem;
+}
+.job-detail-section {
+	margin-bottom: 2.5rem;
+}
+.job-detail-section h3 {
+	font-size: 1.2rem;
+	font-weight: 700;
+	margin-bottom: 0.7rem;
+	color: #181818;
+}
+.job-detail-section ul {
+	margin: 0 0 0 1.2em;
+	padding: 0;
+}
+.job-detail-section li {
+	margin-bottom: 0.5em;
+	font-size: 1.05rem;
+}
+@media (max-width: 900px) {
+		.job-detail-split { flex-direction: column; }
+		.job-detail-left {
+			position: static;
+			width: 100vw;
+			max-width: none;
+			min-width: 0;
+			height: auto;
+			padding: 24px 6vw 0 6vw;
+			border-radius: 0;
+		}
+		.job-detail-right {
+			margin-left: 0;
+			width: 100vw;
+			padding: 32px 6vw 32px 6vw;
+			height: auto;
+			min-height: 60vh;
+		}
+	/* Ensure navbar is not overlapped by fixed left panel */
+}
+header {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	z-index: 100;
+}
+.job-detail-split {
+	margin-top: 64px;
+}
+
 /* Hero Button Group */
 .makuta-hero-btn-group {
 	display: flex;
@@ -127,7 +235,7 @@ html, body {
 }
 
 .makuta-job-details-btn {
-	font-weight: 200;
+	font-weight: 10;
 	letter-spacing: 0.5px;
 }
 
@@ -147,7 +255,7 @@ html, body {
 		justify-content: space-between;
 		/* background: #181818; */
 		border-bottom: 1px solid #232323;
-		padding: 20px 4vh;
+		padding: 10px 4vh;
 			margin: 0 auto;
 			width: 100%;
 			max-width: 90vw;
@@ -299,7 +407,7 @@ html, body {
 	font-size: 1.5rem;
 	font-weight: 200;
 	color: #fff;
-	margin-bottom: 2.5rem;
+	margin-bottom: 2rem;
 }
 .makuta-jobs-list {
 	max-width: 700px;
@@ -460,9 +568,10 @@ html, body {
 	height: 100vh;
 	object-fit: cover;
 	z-index: 0;
-	opacity: 0.3;
+	opacity: 0.5;
 	pointer-events: none;
 }
+
 .makuta-hero-content {
 	position: relative;
 	z-index: 2;
@@ -504,6 +613,7 @@ html, body {
 	border-radius: 12px;
 	font-size: 1rem;
 	font-weight: 200;
+	margin:  0.5rem;
 	padding: 0.8rem 2.2rem;
 	cursor: pointer;
 	box-shadow: 0 2px 8px 0 rgba(0,0,0,0.04);

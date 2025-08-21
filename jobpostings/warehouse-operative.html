@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Warehouse Operative (m/f/d) – Full Time | Makuta Developers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../assets/css/style.css">
+  <link rel="stylesheet" href="../assets/css/careers-custom.css">
+  <link rel="icon" type="image/svg+xml" href="../assets/logo/favicon-crown.svg">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,900&display=swap" rel="stylesheet">
+</head>
+<body>
+<header>
+     <div id="navbar-include"></div>
+    <script>
+      fetch('../components/navbar.html').then(res => res.text()).then(html => {
+        document.getElementById('navbar-include').innerHTML = html;
+      });
+    </script>
+  </header>
+  <div class="job-detail-split">
+    <div class="job-detail-left">
+      <button class="job-detail-back-btn" href="../careers.html" onclick="window.history.back()">&larr; Back</button>
+    </div>
+    <div class="job-detail-right">
+      <div class="job-detail-title">Warehouse Operative (m/f/d) – Full Time</div>
+      <div class="job-detail-meta">Location: Germany, Neusorg &nbsp;|&nbsp; Type: Full Time</div>
+      <div class="job-detail-section">
+        <h3>Job Description</h3>
+        <p>As a Warehouse Operative at Makuta Developers, you will be responsible for the efficient receipt, storage, and dispatch of a wide range of goods. You will play a key role in our supply chain process, ensuring our products reach our customers in perfect condition.</p>
+      </div>
+      <div class="job-detail-section">
+        <h3>Your Responsibilities</h3>
+        <ul>
+          <li>Receiving, moving, checking, and storing incoming goods</li>
+          <li>Picking and packing orders for dispatch</li>
+          <li>Ensuring stock is stored safely and accurately</li>
+          <li>Maintaining accurate stock records and documentation</li>
+          <li>Operating warehouse equipment safely</li>
+          <li>Keeping the warehouse clean and organized</li>
+        </ul>
+      </div>
+      <div class="job-detail-section">
+        <h3>Your Profile</h3>
+        <ul>
+          <li>Experience in warehouse operations preferred</li>
+          <li>Good organizational and time management skills</li>
+          <li>Ability to work independently and as part of a team</li>
+          <li>Attention to detail and reliability</li>
+          <li>Basic computer skills</li>
+        </ul>
+      </div>
+      <div class="job-detail-section">
+        <h3>We Offer</h3>
+        <ul>
+          <li>Competitive salary and benefits</li>
+          <li>Modern working environment</li>
+          <li>Opportunities for professional growth</li>
+          <li>Supportive team culture</li>
+        </ul>
+      </div>
+      <!-- Application Form -->
+      <div class="job-detail-section">
+        <form id="job-application-form" class="mansory-contact-form" enctype="multipart/form-data">
+          <h3>Fill form below to apply to the job position.</h3>
+          <div class="form-row two-col">
+            <input type="text" name="first_name" placeholder="First name *" required>
+            <input type="text" name="last_name" placeholder="Last name">
+          </div>
+          <div class="form-row two-col">
+            <input type="email" name="email" placeholder="Email address *" required>
+            <input type="tel" name="phone" placeholder="Phone number *" required>
+          </div>
+          <div class="form-row">
+            <select name="country" required>
+              <option value="">Country *</option>
+              <option value="India">India</option>
+              <option value="USA">USA</option>
+              <option value="UK">UK</option>
+              <option value="Germany">Germany</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="form-row">
+            <textarea name="message" rows="4" placeholder="Message *" required></textarea>
+          </div>
+          <div class="form-row">
+            <input type="file" name="cv" accept="application/pdf" required>
+            <small>Upload CV (PDF, max 5MB)</small>
+          </div>
+          <div class="form-row">
+            <label><input type="checkbox" required> I consent to the processing and storage of my personal data.</label>
+          </div>
+          <div class="form-row">
+            <button type="submit">Send Application</button>
+          </div>
+          <div class="form-row">
+            <div id="form-status-message"></div>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+      <script>
+      // Job application form validation and status
+      document.addEventListener('DOMContentLoaded', function() {
+        const form = document.getElementById('job-application-form');
+        const statusMsg = document.getElementById('form-status-message');
+        if (!form) return;
+        form.addEventListener('submit', function(e) {
+          e.preventDefault();
+          statusMsg.textContent = '';
+          statusMsg.style.color = '';
+          const file = form.cv.files[0];
+          if (!file) {
+            statusMsg.textContent = 'Please upload your CV.';
+            statusMsg.style.color = '#D8000C';
+            return;
+          }
+          if (file.type !== 'application/pdf') {
+            statusMsg.textContent = 'Only PDF files are allowed.';
+            statusMsg.style.color = '#D8000C';
+            return;
+          }
+          if (file.size > 5 * 1024 * 1024) {
+            statusMsg.textContent = 'File size must be less than 5MB.';
+            statusMsg.style.color = '#D8000C';
+            return;
+          }
+          // Simulate success (replace with real submission as needed)
+          setTimeout(function() {
+            statusMsg.textContent = 'Thank you! Your application has been submitted.';
+            statusMsg.style.color = '#4BB543';
+            form.reset();
+          }, 800);
+        });
+      });
+      </script>
+</body>
+</html>

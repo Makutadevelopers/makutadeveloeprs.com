@@ -10,17 +10,11 @@
   <link rel="stylesheet" href="assets/css/careers-custom.css">
   <link rel="icon" type="image/svg+xml" href="assets/logo/favicon-crown.svg">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,900&display=swap" rel="stylesheet">
-  <style>
-    
-    .lux-nav {
-        background: rgba(0, 0, 0, 0.7)!important;
-        backdrop-filter: blur(10px);
-    }
-  </style>
+ 
 </head>
 <body>
   <header>
-    <div id="navbar-include"></div>
+     <div id="navbar-include"></div>
     <script>
       fetch('components/navbar.html').then(res => res.text()).then(html => {
         document.getElementById('navbar-include').innerHTML = html;
@@ -36,7 +30,7 @@
   <img src="assets/logo/favicon.svg" alt="Makuta Logo" class="makuta-hero-logo  " />
   <h1 class="makuta-hero-title  ">Join us . Be you</h1>
   <div class="makuta-hero-btn-group">
-    <button class="makuta-hero-btn  ">Watch the film</button>
+    <button class="makuta-hero-btn  ">Watch the film</button> 
     <button class="makuta-hero-btn makuta-hero-btn-secondary  " onclick="document.querySelector('.makuta-jobs-list-section').scrollIntoView({behavior: 'smooth'});">Current Openings</button>
   </div>
       </div>
@@ -68,7 +62,7 @@
           <div class="makuta-job-row-mansory  ">
             <div class="makuta-job-location">Germany, Brand</div>
             <div class="makuta-job-title">Elektrotechniker / Mechatroniker (m/w) Vollzeit</div>
-            <a class="makuta-job-details-btn" href="#" target="_blank">Details</a>
+            <a class="makuta-job-details-btn" href="jobpostings/warehouse-operative.html">Details</a>
           </div>
         </div>
         <div class="makuta-job-row-mansory">

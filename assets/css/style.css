@@ -1,5 +1,5 @@
  .lux-nav {
-        background: rgba(0, 0, 0, 0.7)!important;
+  background: rgba(0, 0, 0, 0.7);
         backdrop-filter: blur(10px);
     }
 /* --- MANSORY CONTACT INFO CENTER --- */
@@ -704,6 +704,11 @@ h1, h2, h3, h4, h5, h6 {
   height: 80px;
   transition: transform 0.4s, background 0.4s, backdrop-filter 0.4s;
 }
+.lux-nav {
+        background: rgba(0, 0, 0, 0.7)!important;
+        backdrop-filter: blur(8px);
+      }
+      
 .lux-nav.scrolled {
   background: rgba(34,34,34,0.85);
   backdrop-filter: blur(8px);

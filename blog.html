@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Blog - Makuta Developers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="stylesheet" href="assets/css/careers-custom.css">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon.svg">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,900&display=swap" rel="stylesheet">
+  <style>
+    body { background: #f7f8fa; }
+    .blog-hero-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      max-width: 1100px;
+      margin: 2.5rem auto 1.5rem auto;
+      padding: 0 2rem;
+    }
+    .blog-hero-title {
+      font-size: 2rem;
+      font-weight: 200;
+      letter-spacing: -1px;
+      margin: 0;
+      text-align: left;
+      color: #222;
+    }
+    .blog-viewall-btn {
+      background: #f2f3f7;
+      border: none;
+      padding: 0.7em 2.2em;
+      border-radius: 2em;
+      font-size: 1.1rem;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+    .blog-viewall-btn:hover {
+      background: #e6e7eb;
+    }
+    .blog-cards-controls {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1.5rem;
+  margin-bottom: 2.5rem;
+  max-width: 1100px;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 2rem;
+    }
+    .blog-cards-btn {
+      background: #fff;
+      border: 1px solid #e0e0e0;
+      border-radius: 50%;
+      width: 44px;
+      height: 44px;
+      font-size: 1.5rem;
+      color: #444;
+      cursor: pointer;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+      transition: background 0.2s, border 0.2s;
+    }
+    .blog-cards-btn:hover {
+      background: #f2f3f7;
+      border: 1px solid #bbb;
+    }
+    .blog-main {
+      padding-top: 20vh;
+    }
+    .blog-cards-row {
+  display: flex;
+  gap: 2.2rem;
+  flex-wrap: wrap;
+  margin-bottom: 3rem;
+  padding-bottom: 0.5rem;
+  overflow-x: visible;
+  scroll-behavior: auto;
+    }
+    .blog-card {
+      flex: 0 0 320px;
+    }
+    .blog-card {
+      background: #fff;
+      border-radius: 24px;
+      box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+      width: 320px;
+      display: flex;
+      flex-direction: column;
+      overflow: hidden;
+      transition: box-shadow 0.2s;
+    }
+    .blog-card:hover {
+      box-shadow: 0 8px 32px rgba(0,0,0,0.13);
+    }
+    .blog-card-img {
+      width: 100%;
+      height: 220px;
+      object-fit: cover;
+      display: block;
+    }
+    .blog-card img:hover{
+      transform: scale(1.05);
+      transition: transform 0.2s;
+    }
+    .blog-card-content {
+      padding: 1.5rem 1.3rem 1.2rem 1.3rem;
+      display: flex;
+      flex-direction: column;
+      flex: 1;
+    }
+    .blog-card-author {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      margin-bottom: 0.7rem;
+    }
+    .blog-card-author-img {
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 2px solid #eee;
+    }
+    .blog-card-author-name {
+      font-weight: 600;
+      font-size: 1rem;
+      color: #444;
+    }
+    .blog-card-desc {
+      font-size: 1.08rem;
+      color: #222;
+      margin-bottom: 1.1rem;
+      line-height: 1.5;
+    }
+    .blog-card-meta {
+      display: flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-size: 0.98rem;
+      color: #888;
+    }
+    .blog-card-meta svg {
+      width: 1.1em;
+      height: 1.1em;
+      vertical-align: middle;
+    }
+    @media (max-width: 900px) {
+      .blog-cards-row { flex-direction: column; align-items: center; }
+      .blog-hero-row { flex-direction: column; gap: 1.2rem; align-items: flex-start; }
+      .blog-hero-title { text-align: left; }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <div id="navbar-include"></div>
+  </header>
+  <main class="blog-main" style="min-height:80vh;">
+    <section class="blog-hero-row">
+      <h1 class="blog-hero-title">Newsroom</h1>
+      <!-- <a href="#archive" class="blog-viewall-btn">View Archive</a> -->
+    </section>
+    <section class="featured-story" style="max-width:80vw;margin:0 auto 2.5rem auto;padding:0 2rem;">
+      <div class="blog-card" style="width:100%;display:flex;flex-direction:row;align-items:center;overflow:hidden;">
+        <img src="assets/images/Horizon.png" alt="Featured Story" class="blog-card-img" style="width:340px;height:220px;object-fit:cover;">
+        <div class="blog-card-content" style="flex:1;">
+          <div class="blog-card-author">
+            <img src="assets/images/Taranga.png" alt="Author" class="blog-card-author-img">
+            <span class="blog-card-author-name">Makuta Team</span>
+          </div>
+          <h2 style="font-size:1.5rem;font-weight:300;margin:0 0 0.5rem 0;">Featured: Makuta launches new AI-powered platform</h2>
+          <div class="blog-card-desc">Our latest platform leverages AI to help businesses unlock new opportunities. Discover how we're shaping the future of technology.</div>
+          <div class="blog-card-meta">21 August 2025</div>
+        </div>
+      </div>
+    </section>
+    <section style="max-width:1100px;margin:0 auto 2.5rem auto;padding:0 2rem;">
+      <h2 style="font-size:1.3rem; font-weight:100;color: #222; margin-bottom:1.2rem;">Latest News</h2>
+      <div class="blog-cards-row">
+        <a href="blogpostings/news-1.html" class="blog-card" style="text-decoration:none;color:inherit;">
+          <img src="assets/images/Nirvana.png" alt="News 1" class="blog-card-img">
+          <div class="blog-card-content">
+            <div class="blog-card-author">
+              <img src="assets/images/Taranga.png" alt="Author" class="blog-card-author-img">
+              <span class="blog-card-author-name">Makuta Team</span>
+            </div>
+            <h3 style="font-size:1.1rem;font-weight:700;margin:0 0 0.5rem 0;">Makuta partners with leading tech firms</h3>
+            <div class="blog-card-desc">Makuta announces new partnerships to expand its global reach and impact.</div>
+            <div class="blog-card-meta">18 August 2025</div>
+          </div>
+        </a>
+        <a href="blogpostings/news-2.html" class="blog-card" style="text-decoration:none;color:inherit;">
+          <img src="assets/images/Horizon.png" alt="News 2" class="blog-card-img">
+          <div class="blog-card-content">
+            <div class="blog-card-author">
+              <img src="assets/images/Taranga.png" alt="Author" class="blog-card-author-img">
+              <span class="blog-card-author-name">Makuta Team</span>
+            </div>
+            <h3 style="font-size:1.1rem;font-weight:700;margin:0 0 0.5rem 0;">Makuta hosts annual developer summit</h3>
+            <div class="blog-card-desc">Highlights from our 2025 summit, bringing together innovators from around the world.</div>
+            <div class="blog-card-meta">10 August 2025</div>
+          </div>
+        </a>
+        <a href="blogpostings/news-3.html" class="blog-card blog-card-row2" style="display:none;text-decoration:none;color:inherit;">
+          <img src="assets/images/Taranga.png" alt="News 3" class="blog-card-img">
+          <div class="blog-card-content">
+            <div class="blog-card-author">
+              <img src="assets/images/Taranga.png" alt="Author" class="blog-card-author-img">
+              <span class="blog-card-author-name">Makuta Team</span>
+            </div>
+            <h3 style="font-size:1.1rem;font-weight:700;margin:0 0 0.5rem 0;">Makuta expands to new markets</h3>
+            <div class="blog-card-desc">We're excited to announce our expansion into new regions, bringing our solutions to more businesses.</div>
+            <div class="blog-card-meta">2 August 2025</div>
+          </div>
+        </a>
+        <a href="blogpostings/news-3.html" class="blog-card" style="text-decoration:none;color:inherit;">
+          <img src="assets/images/Taranga.png" alt="News 3" class="blog-card-img">
+          <div class="blog-card-content">
+            <div class="blog-card-author">
+              <img src="assets/images/Taranga.png" alt="Author" class="blog-card-author-img">
+              <span class="blog-card-author-name">Makuta Team</span>
+            </div>
+            <h3 style="font-size:1.1rem;font-weight:700;margin:0 0 0.5rem 0;">Makuta expands to new markets</h3>
+            <div class="blog-card-desc">We're excited to announce our expansion into new regions, bringing our solutions to more businesses.</div>
+            <div class="blog-card-meta">2 August 2025</div>
+          </div>
+        </a><a href="blogpostings/news-3.html" class="blog-card" style="text-decoration:none;color:inherit;">
+          <img src="assets/images/Taranga.png" alt="News 3" class="blog-card-img">
+          <div class="blog-card-content">
+            <div class="blog-card-author">
+              <img src="assets/images/Taranga.png" alt="Author" class="blog-card-author-img">
+              <span class="blog-card-author-name">Makuta Team</span>
+            </div>
+            <h3 style="font-size:1.1rem;font-weight:700;margin:0 0 0.5rem 0;">Makuta expands to new markets</h3>
+            <div class="blog-card-desc">We're excited to announce our expansion into new regions, bringing our solutions to more businesses.</div>
+            <div class="blog-card-meta">2 August 2025</div>
+          </div>
+        </a><a href="blogpostings/news-3.html" class="blog-card" style="text-decoration:none;color:inherit;">
+          <img src="assets/images/Taranga.png" alt="News 3" class="blog-card-img">
+          <div class="blog-card-content">
+            <div class="blog-card-author">
+              <img src="assets/images/Taranga.png" alt="Author" class="blog-card-author-img">
+              <span class="blog-card-author-name">Makuta Team</span>
+            </div>
+            <h3 style="font-size:1.1rem;font-weight:700;margin:0 0 0.5rem 0;">Makuta expands to new markets</h3>
+            <div class="blog-card-desc">We're excited to announce our expansion into new regions, bringing our solutions to more businesses.</div>
+            <div class="blog-card-meta">2 August 2025</div>
+          </div>
+        </a>
+      </div>
+      <div class="blog-cards-row">
+      
+      </div>
+      <div style="text-align:center;margin-top:1.2rem;">
+  <button id="showAllBlogsBtn" class="blog-viewall-btn">Show All Blogs</button>
+  <button id="showLessBlogsBtn" class="blog-viewall-btn" style="display:none;">Show Less</button>
+      </div>
+      </div>
+    </section>
+
+  </main>
+  
+  <script>
+    // Navbar and footer includes
+    fetch('components/navbar.html').then(r=>r.text()).then(t=>document.getElementById('navbar-include').innerHTML=t);
+    // Show More/Less logic for blog cards (3 per row)
+    document.addEventListener('DOMContentLoaded', function() {
+      var showAllBtn = document.getElementById('showAllBlogsBtn');
+      var showLessBtn = document.getElementById('showLessBlogsBtn');
+      var row2Cards = document.querySelectorAll('.blog-card-row2');
+      if (showAllBtn && showLessBtn) {
+        showAllBtn.addEventListener('click', function() {
+          row2Cards.forEach(function(card) {
+            card.style.display = 'flex';
+          });
+          showAllBtn.style.display = 'none';
+          showLessBtn.style.display = 'inline-block';
+        });
+        showLessBtn.addEventListener('click', function() {
+          row2Cards.forEach(function(card) {
+            card.style.display = 'none';
+          });
+          showAllBtn.style.display = 'inline-block';
+          showLessBtn.style.display = 'none';
+          // Scroll to the blog section for better UX
+          var blogSection = showAllBtn.closest('section');
+          if (blogSection) {
+            blogSection.scrollIntoView({behavior:'smooth'});
+          }
+        });
+      }
+    });
+  </script>
+</body>
+</html>

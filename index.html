@@ -23,7 +23,7 @@
     <button class="carousel-btn prev-btn"></button>
     <div class="carousel-slides">
       <div class="carousel-slide active">
-        <img src="assets/images/Taranga.png" alt="https://www.makutataranga.com/">
+        <img src="./assets/images/Taranga.png" alt="https://www.makutataranga.com/">
         <div class="carousel-caption">
           <h2>Makuta Tarnaga</h2>
           <p>Luxury redefined. Experience the future of living.</p>
@@ -230,24 +230,5 @@
         window.addEventListener(evt, resetBarTimer);
       });
       resetBarTimer();
-    </script>
-  <script>
-    // Navbar scroll hide/show and translucent background after 100vh
-    let lastScroll = 0;
-    const nav = document.querySelector('.lux-nav');
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll > lastScroll && currentScroll > 80) {
-        nav.classList.add('hide');
-      } else {
-        nav.classList.remove('hide');
-      }
-      if (currentScroll > window.innerHeight) {
-        nav.classList.add('scrolled');
-      } else {
-        nav.classList.remove('scrolled');
-      }
-      lastScroll = currentScroll;
-    });
-  </script>
+    
   </body>

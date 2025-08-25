@@ -1,0 +1,229 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>About Us - Makuta Developers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon-crown.svg">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,900&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script:700&display=swap" rel="stylesheet">
+
+</head>
+<body>
+  <!--#include virtal="/components/navbar.html" -->
+    <!-- Construction Hero Section BELOW Timeline -->
+  <section class="about-hero-construction" id="about-hero-construction">
+    <div class="about-hero-construction-bg"></div>
+    <div class="about-hero-construction-content">
+      <h1 class="about-hero-construction-title">Building More Than Homes <br> Building Trust.</h1>
+      <div class="about-hero-construction-play" id="play-video-btn">
+        <span class="about-hero-construction-play-icon">
+          <svg xmlns="http://www.w3.org/2000/svg" stroke="#000" viewBox="0 0 24 24" width="40" height="40"><path d="M4 20.57 7 22l15-8.57v-2.86L7 2 4 3.43z" fill="none" stroke-width="2"/></svg>
+        </span>
+        <span class="about-hero-construction-play-text">PLAY VIDEO</span>
+      </div>
+      <div class="about-hero-construction-desc">Watch the story of how passion and vision transformed into landmarks of construction excellence</div>
+    </div>
+<!-- Video Overlay: moved to end of body for true fullscreen effect -->
+  <div class="about-hero-video-overlay" id="video-overlay" style="display:none;">
+    <div class="about-hero-video-container">
+      <div class="about-hero-video-responsive">
+        <iframe id="about-hero-youtube" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <button class="about-hero-video-close" id="close-video-btn">&times;</button>
+    </div>
+  </div>
+  </section>
+  <script>
+    // Play video overlay logic
+    document.addEventListener('DOMContentLoaded', function() {
+      var playBtn = document.getElementById('play-video-btn');
+      var overlay = document.getElementById('video-overlay');
+      var closeBtn = document.getElementById('close-video-btn');
+      var youtube = document.getElementById('about-hero-youtube');
+      var videoUrl = 'https://www.youtube.com/embed/AjBXOE8DQ3U?autoplay=1';
+      if (playBtn && overlay && closeBtn && youtube) {
+        playBtn.onclick = function() {
+          overlay.style.display = 'flex';
+          setTimeout(function() { youtube.src = videoUrl; }, 100); // ensure overlay is visible before loading
+        };
+        closeBtn.onclick = function() {
+          overlay.style.display = 'none';
+          youtube.src = '';
+        };
+      }
+      // Smooth scroll to construction section if hash present
+      if(window.location.hash === '#about-hero-construction') {
+        document.getElementById('about-hero-construction').scrollIntoView({behavior: 'smooth'});
+      }
+
+      // Scroll reveal for hero title and desc
+      function revealOnScroll() {
+        var title = document.querySelector('.about-hero-construction-title');
+        var desc = document.querySelector('.about-hero-construction-desc');
+        var trigger = window.innerHeight * 0.85;
+        [title, desc].forEach(function(el) {
+          if (!el) return;
+          var rect = el.getBoundingClientRect();
+          if (rect.top < trigger) {
+            el.classList.add('revealed');
+          } else {
+            el.classList.remove('revealed');
+          }
+        });
+      }
+      window.addEventListener('scroll', revealOnScroll);
+      revealOnScroll();
+    });
+  </script>
+  <div id="navbar-include"></div>
+
+  <section class="about-hero">
+    <div class="about-hero-overlay"></div>
+    <div class="about-hero-center">
+      <!-- <h1 class="about-hero-title">A Journey of Passion and Excellence</h1> -->
+      <p class="about-hero-desc">From a vision to reality, Makuta Developers has redefined luxury living through innovation, artistry, and a relentless pursuit of perfection. Our story is one of dreams, challenges, and milestones—each step a testament to our unwavering commitment to excellence.</p>
+      <div class="about-hero-signature">
+        <!-- <img src="assets/images/signature-janardhan.png" alt="Janardhan Kompally Signature" class="about-signature-img"> -->
+        <div class="about-signature-name">Janardhan Kompally</div>
+        <!-- <div class="about-signature-title">Founder & CEO</div> -->
+      </div>
+    </div>
+  </section>
+
+  <section class="about-timeline-section">
+    <div class="about-timeline-row-wrapper">
+        <div class="about-timeline-nav-vertical">
+          <button class="about-timeline-nav-btn" id="timeline-scroll-left" aria-label="Scroll Left">&#8592;</button>
+          <button class="about-timeline-nav-btn" id="timeline-scroll-right" aria-label="Scroll Right">&#8594;</button>
+        </div>
+        <div class="about-timeline-horizontal-scroll" id="about-timeline-horizontal-scroll">
+          <div class="timeline__previews">
+              <div class="timeline__card" data-year="2012">
+                <div class="timeline__card-content">
+                  <h2 class="timeline__card-title">Foundation Year</h2>
+                  <p class="timeline__card-desc">Makuta Developers is founded, setting the stage for a journey of innovation and excellence in real estate.</p>
+                </div>
+                <div class="timeline__card-image" style="display:flex;justify-content:center;align-items:center;">
+                  <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd9?auto=format&fit=crop&w=420&q=80" alt="2012 Milestone" class="timeline__img">
+                </div>
+              </div>
+              <div class="timeline__card" data-year="2016">
+                <div class="timeline__card-content">
+                  <h2 class="timeline__card-title">Expansion & Recognition</h2>
+                  <p class="timeline__card-desc">Makuta expands into commercial and retail spaces, earning industry accolades for innovation and excellence.</p>
+                </div>
+                <div class="timeline__card-image" style="display:flex;justify-content:center;align-items:center;">
+                  <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=420&q=80" alt="2016 Milestone" class="timeline__img">
+                </div>
+              </div>
+              <div class="timeline__card" data-year="2018">
+                <div class="timeline__card-content">
+                  <h2 class="timeline__card-title">New Heights</h2>
+                  <p class="timeline__card-desc">Makuta Developers achieves new milestones, expanding its portfolio and market presence.</p>
+                </div>
+                <div class="timeline__card-image" style="display:flex;justify-content:center;align-items:center;">
+                  <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=420&q=80" alt="2018 Milestone" class="timeline__img">
+                </div>
+              </div>
+              <div class="timeline__card" data-year="2020">
+                <div class="timeline__card-content">
+                  <h2 class="timeline__card-title">Sustainable Living</h2>
+                  <p class="timeline__card-desc">Introduction of eco-friendly and sustainable practices across all projects, reinforcing our commitment to a better future.</p>
+                </div>
+                <div class="timeline__card-image" style="display:flex;justify-content:center;align-items:center;">
+                  <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd9?auto=format&fit=crop&w=420&q=80" alt="2020 Milestone" class="timeline__img">
+                </div>
+              </div>
+              <div class="timeline__card" data-year="2022">
+                <div class="timeline__card-content">
+                  <h2 class="timeline__card-title">Innovation Drive</h2>
+                  <p class="timeline__card-desc">Makuta launches innovative projects, integrating technology and design for modern living.</p>
+                </div>
+                <div class="timeline__card-image" style="display:flex;justify-content:center;align-items:center;">
+                  <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=420&q=80" alt="2022 Milestone" class="timeline__img">
+                </div>
+              </div>
+              <div class="timeline__card" data-year="2024">
+                <div class="timeline__card-content">
+                  <h2 class="timeline__card-title">A New Era of Luxury</h2>
+                  <p class="timeline__card-desc">Makuta launches its most ambitious projects, blending technology, artistry, and sustainability for the next generation of luxury living.</p>
+                </div>
+                <div class="timeline__card-image" style="display:flex;justify-content:center;align-items:center;">
+                  <img src="https://images.unsplash.com/photo-1506744038136-46273834b3fb?auto=format&fit=crop&w=420&q=80" alt="2024 Milestone" class="timeline__img">
+                </div>
+              </div>
+          </div>
+        </div>
+    </div>
+    <div class="about-timeline-years-bar-line">
+      <div class="about-timeline-years-line"></div>
+      <div class="about-timeline-years-labels">
+          <span class="timeline__year" data-year="2012">2012</span>
+          <span class="timeline__year" data-year="2014">2014</span>
+          <span class="timeline__year" data-year="2016">2016</span>
+          <span class="timeline__year" data-year="2018">2018</span>
+          <span class="timeline__year" data-year="2020">2020</span>
+          <span class="timeline__year" data-year="2022">2022</span>
+          <span class="timeline__year" data-year="2024">2024</span>
+      </div>
+    </div>
+  </section>
+
+  <script>
+    // Simple JS include for navbar (works for static sites)
+    fetch('components/navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar-include').innerHTML = html;
+      });
+
+    // Parallax effect for about-hero-overlay
+    window.addEventListener('scroll', function() {
+      var overlay = document.querySelector('.about-hero-overlay');
+      if (!overlay) return;
+      var scrolled = window.scrollY;
+      overlay.style.backgroundPosition = 'center ' + (40 + scrolled * 0.3) + 'px';
+    });
+
+
+
+
+
+      // Pagani-style timeline navigation with working buttons and year click
+      const cards = Array.from(document.querySelectorAll('.timeline__card'));
+      const years = Array.from(document.querySelectorAll('.timeline__year'));
+      const btnLeft = document.getElementById('timeline-scroll-left');
+      const btnRight = document.getElementById('timeline-scroll-right');
+      let activeIndex = 0;
+
+      function showCard(idx) {
+        cards.forEach((el, i) => {
+          el.classList.toggle('active', i === idx);
+        });
+        years.forEach((el, i) => {
+          el.classList.toggle('active', i === idx);
+        });
+        activeIndex = idx;
+      }
+      showCard(0);
+
+      years.forEach((el, idx) => {
+        el.addEventListener('click', () => showCard(idx));
+      });
+
+      if (btnLeft && btnRight) {
+        btnLeft.onclick = function() {
+          let next = (activeIndex - 1 + cards.length) % cards.length;
+          showCard(next);
+        };
+        btnRight.onclick = function() {
+          let next = (activeIndex + 1) % cards.length;
+          showCard(next);
+        };
+      }
+  </script>
+</body>
+</html>

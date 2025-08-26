@@ -14,11 +14,13 @@
 </head>
 <body>
   <header>
-     <div id="navbar-include"></div>
+  <div id="navbar-include"></div>
     <script>
-      fetch('components/navbar.html').then(res => res.text()).then(html => {
-        document.getElementById('navbar-include').innerHTML = html;
-      });
+      fetch('components/navbar.html')
+        .then(res => res.text())
+        .then(html => {
+          document.getElementById('navbar-include').innerHTML = html;
+        });
     </script>
   </header>
   <main>

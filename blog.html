@@ -155,7 +155,7 @@
 </head>
 <body>
   <header>
-    <div id="navbar-include"></div>
+  <div id="navbar-include"></div>
   </header>
   <main class="blog-main" style="min-height:80vh;">
     <section class="blog-hero-row">
@@ -264,7 +264,11 @@
   
   <script>
     // Navbar and footer includes
-    fetch('components/navbar.html').then(r=>r.text()).then(t=>document.getElementById('navbar-include').innerHTML=t);
+    fetch('components/navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar-include').innerHTML = html;
+      });
     // Show More/Less logic for blog cards (3 per row)
     document.addEventListener('DOMContentLoaded', function() {
       var showAllBtn = document.getElementById('showAllBlogsBtn');

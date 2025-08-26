@@ -10,9 +10,8 @@
 </head>
 <body>
   <header>
-    <div id="navbar-include"></div>
+  <div id="navbar-include"></div>
     <style>
-      
       .popup-notification {
         position: fixed;
         top: 32px;
@@ -165,9 +164,11 @@
         });
       }
     });
-    fetch('components/navbar.html').then(res => res.text()).then(html => {
-      document.getElementById('navbar-include').innerHTML = html;
-    });
+    fetch('components/navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar-include').innerHTML = html;
+      });
 
     // Parallax effect for image
     window.addEventListener('scroll', function() {

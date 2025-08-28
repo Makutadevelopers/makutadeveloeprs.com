@@ -13,7 +13,9 @@
 <body>
 
   <header>
-  <div id="navbar-include"></div>
+    <!--#include virtual="/components/navbar.html" -->
+    <!-- For static HTML, use JS to inject or use a build tool for includes -->
+    <div id="navbar-include"></div>
   </header>
 
   <!-- Hero Section Carousel -->
@@ -228,5 +230,5 @@
         window.addEventListener(evt, resetBarTimer);
       });
       resetBarTimer();
-    </script>
+    
   </body>

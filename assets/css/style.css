@@ -1376,18 +1376,7 @@ body.nav-open {
     gap: 0;
   }
 }
-@media (max-width: 900px) {
-  .contact-form-section, .careers-form-section {
-    flex-direction: column;
-    gap: 24px;
-    padding: 24px 8px;
-  }
-  .contact-info, .careers-info {
-    margin-left: 0;
-    margin-top: 18px;
-    text-align: center;
-  }
-}
+
 /* --- ABOUT STATS SECTION --- */
 .about-stats-section {
   background: #fff url('../images/parallax-bg.jpg') center center / cover fixed no-repeat;
@@ -1928,4 +1917,227 @@ h1, h2, h3, h4, h5, h6 {
   }
 }
 
-/* --- REST OF YOUR STYLES (tabs, cards, forms, etc.) --- */
+/* --- Organization Leadership Section --- */
+.org-leadership-section {
+  background: #0d1831;
+  padding: 4rem 0 3rem 0;
+  text-align: center;
+}
+.org-leadership-title {
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 700;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.04em;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.org-leadership-cards {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.org-leadership-card {
+  background: #19284a;
+  border-radius: 18px;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.13);
+  width: 260px;
+  padding: 2.2rem 1.2rem 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.18s, box-shadow 0.18s;
+}
+.org-leadership-card:hover {
+  transform: translateY(-8px) scale(1.03);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.18);
+}
+.org-leadership-img {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1.3rem;
+  border: 4px solid #fff2;
+  background: #fff;
+}
+.org-leadership-name {
+  color: #fff;
+  font-size: 1.1rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  letter-spacing: 0.03em;
+  text-transform: uppercase;
+}
+.org-leadership-role {
+  color: #e6c36b;
+  font-size: 0.98rem;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+}
+@media (max-width: 900px) {
+  .org-leadership-cards {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  .org-leadership-card {
+    width: 90vw;
+    max-width: 340px;
+  }
+}
+
+/* --- Organization Cards Section (reference-matched) --- */
+.org-cards-section {
+  background: #101012;
+  padding: 5rem;
+  text-align: center;
+}
+.org-cards-title {
+  color: #fff;
+  font-size: 2.2rem;
+  font-weight: 100;
+  margin-bottom: 2.5rem;
+  letter-spacing: 0.04em;
+}
+.org-cards-row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 2.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+.org-card {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  justify-content: flex-end;
+  width: 22vw ;
+  height: 60vh;
+  background: none;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22);
+  overflow: hidden;
+  position: relative;
+  text-decoration: none;
+  transition: transform 0.18s, box-shadow 0.18s;
+  cursor: pointer;
+}
+.org-card:hover {
+  /* transform: translateY(-8px) scale(1.03); */
+  box-shadow: 0 16px 48px rgba(0,0,0,0.28);
+  z-index: 2;
+}
+
+/* Overlay for play button on hover */
+.org-card-overlay {
+  position: absolute;
+  left: 0; top: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  z-index: 10;
+  transition: opacity 0.25s;
+}
+.org-card:hover .org-card-overlay {
+  opacity: 1;
+}
+.org-card-play-btn {
+  background: rgba(255,255,255,0.85);
+  border-radius: 50%;
+  width: 64px;
+  height: 64px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 2px 12px #0006;
+  cursor: pointer;
+  border: none;
+  outline: none;
+  transition: background 0.18s, transform 0.18s;
+}
+.org-card-play-btn:hover {
+  /* background: #fff; */
+  transform: scale(1.08);
+}
+  .org-card-play-btn svg {
+    width: 32px;
+    height: 32px;
+    display: block;
+    fill: #232323;
+  }
+.org-card-bg {
+  position: absolute;
+  left: 0; top: 0; right: 0; bottom: 0;
+  width: 100%;
+  height: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+}
+.org-card::after {
+  content: '';
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  height: 20%;
+  background: linear-gradient(0deg, rgba(11, 10, 10, 0.98) 80%, rgba(5, 4, 4, 0) 100%);
+  z-index: 2;
+  pointer-events: none;
+}
+.org-card-info {
+  position: absolute;
+  left: 0; right: 0; bottom: 0;
+  z-index: 3;
+  padding: 2.2rem 1.2rem 1.5rem 1.2rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-end;
+  min-height: 120px;
+}
+.org-card-name {
+  color: #fff;
+  font-size: 1.25rem;
+  font-weight: 100;
+  margin-bottom: 0.2rem;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+  text-shadow: 0 2px 12px #000c;
+}
+.org-card-role {
+  color: #fff;
+  font-size: 1.05rem;
+  font-family: 'Montserrat', Arial, sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  text-shadow: 0 2px 8px #000a;
+  opacity: 0.92;
+}
+@media (max-width: 1100px) {
+  .org-cards-row {
+    gap: 1.2rem;
+  }
+  .org-card {
+    width: 260px;
+    height: 340px;
+  }
+}
+@media (max-width: 900px) {
+  .org-cards-row {
+    flex-direction: column;
+    gap: 2rem;
+    align-items: center;
+  }
+  .org-card {
+    width: 90vw;
+    max-width: 340px;
+    height: 320px;
+  }
+}

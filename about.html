@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -57,7 +56,7 @@
       // Smooth scroll to construction section if hash present
       if(window.location.hash === '#about-hero-construction') {
         document.getElementById('about-hero-construction').scrollIntoView({behavior: 'smooth'});
-      }
+      } 
 
       // Scroll reveal for hero title and desc
       function revealOnScroll() {
@@ -108,6 +107,15 @@
                 </div>
                 <div class="timeline__card-image" style="display:flex;justify-content:center;align-items:center;">
                   <img src="https://images.unsplash.com/photo-1465101178521-c1a9136a3fd9?auto=format&fit=crop&w=420&q=80" alt="2012 Milestone" class="timeline__img">
+                </div>
+              </div>
+              <div class="timeline__card" data-year="2014">
+                <div class="timeline__card-content">
+                  <h2 class="timeline__card-title">Early Growth</h2>
+                  <p class="timeline__card-desc">Makuta begins its first major residential projects, building a reputation for quality and trust.</p>
+                </div>
+                <div class="timeline__card-image" style="display:flex;justify-content:center;align-items:center;">
+                  <img src="https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=420&q=80" alt="2014 Milestone" class="timeline__img">
                 </div>
               </div>
               <div class="timeline__card" data-year="2016">
@@ -172,6 +180,50 @@
     </div>
   </section>
 
+  <section class="org-cards-section">
+            <h2 class="org-cards-title inner">The Leadership</h2>
+
+
+  <div class="org-cards-row">
+    <div class="org-card org-card-large" data-video="https://www.youtube.com/embed/AjBXOE8DQ3U?autoplay=1">
+      <div class="org-card-bg" style="background-image:url('assets/images/portfolio/Janardhan-Kompally.jpg'); background-color:#554745;"></div>
+      <div class="org-card-overlay">
+        <button class="org-card-play-btn" aria-label="Play Video">
+          <svg xmlns="http://www.w3.org/2000/svg" stroke="#000" viewBox="0 0 24 24" width="40" height="40"><path d="M4 20.57 7 22l15-8.57v-2.86L7 2 4 3.43z" fill="none" stroke-width="2"/></svg>
+        </button>
+      </div>
+      <div class="org-card-info">
+        <div class="org-card-name">JANARDHAN KOMPALLY</div>
+        <div class="org-card-role">FOUNDER & CEO</div>
+      </div>
+    </div>
+    <div class="org-card" data-video="https://www.youtube.com/embed/ScMzIvxBSi4?autoplay=1">
+      <div class="org-card-bg" style="background-image:url('assets/images/portfolio/member2.jpg'); background-color:#7b716f;"></div>
+      <div class="org-card-overlay">
+        <button class="org-card-play-btn" aria-label="Play Video">
+          <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="none"/><polygon points="26,20 48,32 26,44"/></svg>
+        </button>
+      </div>
+      <div class="org-card-info">
+        <div class="org-card-name">HARSHAVARDHAN</div>
+        <div class="org-card-role">Managing Director</div>
+      </div>
+    </div>
+    <div class="org-card" data-video="https://www.youtube.com/embed/dQw4w9WgXcQ?autoplay=1">
+      <div class="org-card-bg" style="background-image:url('assets/images/portfolio/member3.jpg'); background-color:#b1b1b1;"></div>
+      <div class="org-card-overlay">
+        <button class="org-card-play-btn" aria-label="Play Video">
+          <svg viewBox="0 0 64 64"><circle cx="32" cy="32" r="32" fill="none"/><polygon points="26,20 48,32 26,44"/></svg>
+        </button>
+      </div>
+      <div class="org-card-info">
+        <div class="org-card-name">VENKATA SUBBARAJU</div>
+        <div class="org-card-role">Managing Partner</div>
+      </div>
+    </div>
+  </div>
+</section>
+
   <script>
     // Simple JS include for navbar (works for static sites)
     fetch('components/navbar.html')
@@ -227,3 +279,103 @@
   </script>
 </body>
 </html>
+<div class="org-card-video-overlay" id="org-card-video-overlay" style="display:none;">
+  <div class="org-card-video-container">
+    <iframe id="org-card-youtube" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <button class="org-card-video-close" id="close-org-card-video">&times;</button>
+  </div>
+</div>
+<style>
+.org-card-video-overlay {
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0,0,0,0.88);
+  z-index: 2000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.org-card-video-container {
+  position: relative;
+  width: 90vw;
+  max-width: 800px;
+  aspect-ratio: 16/9;
+  background: #000;
+  border-radius: 12px;
+  box-shadow: 0 4px 32px #000a;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.org-card-video-container iframe {
+  width: 100%;
+  height: 100%;
+  border: none;
+  border-radius: 12px;
+}
+.org-card-video-close {
+  position: absolute;
+  top: 10px;
+  right: 18px;
+  font-size: 2.2rem;
+  color: #fff;
+  background: none;
+  border: none;
+  cursor: pointer;
+  z-index: 10;
+  opacity: 0.85;
+  transition: opacity 0.2s;
+}
+.org-card-video-close:hover {
+  opacity: 1;
+}
+</style>
+<script>
+// Org card play video overlay logic
+document.addEventListener('DOMContentLoaded', function() {
+  var orgCards = document.querySelectorAll('.org-card');
+  var overlay = document.getElementById('org-card-video-overlay');
+  var closeBtn = document.getElementById('close-org-card-video');
+  var youtube = document.getElementById('org-card-youtube');
+  orgCards.forEach(function(card) {
+    var playBtn = card.querySelector('.org-card-play-btn');
+    if (playBtn) {
+      playBtn.onclick = function(e) {
+        e.stopPropagation();
+        var videoUrl = card.getAttribute('data-video');
+        if (overlay && youtube && videoUrl) {
+          overlay.style.display = 'flex';
+          setTimeout(function() { youtube.src = videoUrl; }, 100);
+        }
+      };
+    }
+    // Also allow clicking anywhere on card to play
+    card.onclick = function(e) {
+      if (e.target.classList.contains('org-card-play-btn') || e.target.closest('.org-card-play-btn')) return;
+      var videoUrl = card.getAttribute('data-video');
+      if (overlay && youtube && videoUrl) {
+        overlay.style.display = 'flex';
+        setTimeout(function() { youtube.src = videoUrl; }, 100);
+      }
+    };
+  });
+  if (closeBtn && overlay && youtube) {
+    closeBtn.onclick = function() {
+      overlay.style.display = 'none';
+      youtube.src = '';
+    };
+  }
+  // Close overlay on outside click
+  if (overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        overlay.style.display = 'none';
+        youtube.src = '';
+      }
+    });
+  }
+});
+</script>

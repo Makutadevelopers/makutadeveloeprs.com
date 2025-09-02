@@ -8,7 +8,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="stylesheet" href="assets/css/careers-custom.css">
-  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon-crown.svg">
+  <link rel="icon" type="image/png" href="/assets/logo/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,900&display=swap" rel="stylesheet">
  
 </head>
@@ -18,6 +18,55 @@
     <script>
       fetch('components/navbar.html').then(res => res.text()).then(html => {
         document.getElementById('navbar-include').innerHTML = html;
+        // Hamburger/overlay logic after navbar is injected
+        var openBtn = document.getElementById('open-overlay-navbar');
+        var closeBtn = document.getElementById('overlay-navbar-close');
+        var overlay = document.getElementById('overlay-navbar');
+        var navbar = document.querySelector('.main-navbar-bar');
+        var lastScrollY = window.scrollY;
+        var ticking = false;
+        if (openBtn && overlay) {
+          openBtn.onclick = function() {
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            navbar.classList.add('hide-navbar');
+          };
+        }
+        if (closeBtn && overlay) {
+          closeBtn.onclick = function() {
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+            navbar.classList.remove('hide-navbar');
+          };
+        }
+        if (overlay) {
+          overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) {
+              overlay.classList.remove('open');
+              document.body.style.overflow = '';
+              navbar.classList.remove('hide-navbar');
+            }
+          });
+        }
+        // Hide navbar on scroll down, show on scroll up
+        function onScroll() {
+          if (overlay.classList.contains('open')) return;
+          if (window.scrollY > lastScrollY && window.scrollY > 40) {
+            navbar.classList.add('hide-navbar');
+          } else {
+            navbar.classList.remove('hide-navbar');
+          }
+          lastScrollY = window.scrollY;
+        }
+        window.addEventListener('scroll', function() {
+          if (!ticking) {
+            window.requestAnimationFrame(function() {
+              onScroll();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
       });
     </script>
   </header>

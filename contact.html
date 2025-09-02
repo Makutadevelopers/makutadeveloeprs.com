@@ -5,7 +5,7 @@
   <title>Contact Us - Makuta Developers</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon-crown.svg">
+  <link rel="icon" type="image/png" href="/assets/logo/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,900&display=swap" rel="stylesheet">
 </head>
 <body>
@@ -46,7 +46,7 @@
       <div class="mansory-contact-info-center">
         <div class="info-block">
           <div class="info-label">PHONE</div>
-          <div class="info-value"><a href="tel:+911234567890">+91 12345 67890</a></div>
+          <div class="info-value"><a href="tel:+918121414848">+91 812141 4848</a></div>
         </div>
         <div class="info-divider"></div>
         <div class="info-block">
@@ -55,28 +55,7 @@
         </div>
       </div>
     </section>
-    <!-- <section class="mansory-contact-section">
-      <form class="mansory-contact-form">
-        <div class="form-row">
-          <input type="text" name="name" placeholder="Name*" required>
-        </div>
-        <div class="form-row">
-          <input type="email" name="email" placeholder="Email*" required>
-        </div>
-        <div class="form-row">
-          <input type="tel" name="phone" placeholder="Phone*" required>
-        </div>
-        <div class="form-row">
-          <textarea name="message" rows="5" placeholder="Message*" required></textarea>
-        </div>
-        <div class="form-row">
-          <button type="submit">Send Message</button>
-        </div>
-        <div class="form-row">
-          <div id="form-status-message"></div>
-        </div>
-      </form>
-    </section> -->
+   
 <section class="contact-parallax-section">
   <div class="contact-cards">
     <div class="contact-card contact-image-card">
@@ -167,6 +146,55 @@
     });
     fetch('components/navbar.html').then(res => res.text()).then(html => {
       document.getElementById('navbar-include').innerHTML = html;
+      // Hamburger/overlay logic after navbar is injected
+      var openBtn = document.getElementById('open-overlay-navbar');
+      var closeBtn = document.getElementById('overlay-navbar-close');
+      var overlay = document.getElementById('overlay-navbar');
+      var navbar = document.querySelector('.main-navbar-bar');
+      var lastScrollY = window.scrollY;
+      var ticking = false;
+      if (openBtn && overlay) {
+        openBtn.onclick = function() {
+          overlay.classList.add('open');
+          document.body.style.overflow = 'hidden';
+          navbar.classList.add('hide-navbar');
+        };
+      }
+      if (closeBtn && overlay) {
+        closeBtn.onclick = function() {
+          overlay.classList.remove('open');
+          document.body.style.overflow = '';
+          navbar.classList.remove('hide-navbar');
+        };
+      }
+      if (overlay) {
+        overlay.addEventListener('click', function(e) {
+          if (e.target === overlay) {
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+            navbar.classList.remove('hide-navbar');
+          }
+        });
+      }
+      // Hide navbar on scroll down, show on scroll up
+      function onScroll() {
+        if (overlay.classList.contains('open')) return;
+        if (window.scrollY > lastScrollY && window.scrollY > 40) {
+          navbar.classList.add('hide-navbar');
+        } else {
+          navbar.classList.remove('hide-navbar');
+        }
+        lastScrollY = window.scrollY;
+      }
+      window.addEventListener('scroll', function() {
+        if (!ticking) {
+          window.requestAnimationFrame(function() {
+            onScroll();
+            ticking = false;
+          });
+          ticking = true;
+        }
+      });
     });
 
     // Parallax effect for image

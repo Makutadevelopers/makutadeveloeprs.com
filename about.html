@@ -5,7 +5,7 @@
   <title>About Us - Makuta Developers</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/style.css">
-  <link rel="icon" type="image/svg+xml" href="assets/logo/favicon-crown.svg">
+  <link rel="icon" type="image/png" href="/assets/logo/favicon.png">
   <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,900&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Dancing+Script:700&display=swap" rel="stylesheet">
 
@@ -79,6 +79,7 @@
   </script>
 
 
+
   <section class="about-hero">
     <div class="about-hero-overlay"></div>
     <div class="about-hero-center">
@@ -91,6 +92,8 @@
       </div>
     </div>
   </section>
+
+  
 
   <section class="about-timeline-section">
     <div class="about-timeline-row-wrapper">
@@ -224,12 +227,149 @@
   </div>
 </section>
 
+
+
+
+
+<!-- Koenigsegg-style two block section -->
+  <section class="about-two-blocks">
+    <div class="about-two-blocks-container">
+      <div class="about-block about-block-left">
+        <div class="about-block-arrow">
+          <svg width="36" height="36" viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M18 6V30" stroke="#fff" stroke-width="2.5"/>
+            <path d="M10 22L18 30L26 22" stroke="#fff" stroke-width="2.5"/>
+          </svg>
+        </div>
+        <div class="about-block-desc">Discover our legacy models</div>
+      </div>
+      <div class="about-block about-block-right">
+        <div class="about-block-title">CURRENT</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Koenigsegg-style grid section for current models -->
+  <section class="about-current-grid">
+
+    <div class="about-current-grid-row">
+      <div class="about-current-tile">
+        <a href="#" class="about-current-tile-link">
+          <div class="about-current-tile-img" style="background-image:url('https://koenigsegg-cdn-g7eehhd6f0ewcaff.z02.azurefd.net/drupal/styles/514x550/azure/2023-01/Koenigsegg%20CC850%20-%201.jpg?h=41c0849e&itok=nWOy_eeq');"></div>
+          <div class="about-current-tile-content">
+            <span class="about-current-tile-title">RMC Unit</span>
+          </div>
+        </a>
+      </div>
+      <div class="about-current-tile">
+        <a href="#" class="about-current-tile-link">
+          <div class="about-current-tile-img" style="background-image:url('https://koenigsegg-cdn-g7eehhd6f0ewcaff.z02.azurefd.net/drupal/styles/514x550/azure/2023-07/GEMERA%20CS%20BACK.png?h=2b829f5f&itok=2ZQamr2g');"></div>
+          <div class="about-current-tile-content">
+            <span class="about-current-tile-title">Quality Testing</span>
+          </div>
+        </a>
+      </div>
+      <div class="about-current-tile">
+        <a href="#" class="about-current-tile-link">
+          <div class="about-current-tile-img" style="background-image:url('https://koenigsegg-cdn-g7eehhd6f0ewcaff.z02.azurefd.net/drupal/styles/514x550/azure/2023-01/Koenigsegg%20Jesko%20Absolut.png?h=41c0849e&itok=RqnSabvx');"></div>
+          <div class="about-current-tile-content">
+            <span class="about-current-tile-title">CRM</span>
+          </div>
+        </a>
+      </div>
+      <div class="about-current-tile">
+        <a href="#" class="about-current-tile-link">
+          <div class="about-current-tile-img" style="background-image:url('https://koenigsegg-cdn-g7eehhd6f0ewcaff.z02.azurefd.net/drupal/styles/514x550/azure/2022-01/Jesko%20Track%20parked%20on%20a%20gravel%20path.jpg?h=10877377&itok=wfBvHgRh');"></div>
+          <div class="about-current-tile-content">
+            <span class="about-current-tile-title">Jesko Attack</span>
+          </div>
+        </a>
+      </div>
+    </div>
+    <div class="about-current-cta-row">
+      <a href="#" class="about-current-cta-btn">
+        <span class="about-current-cta-arrow">
+          <svg viewBox="0 0 24 24" fill="none" stroke="#fff" xmlns="http://www.w3.org/2000/svg" width="32" height="32"><path d="M11.5 20.417V3.447M20.447 14.809l-5.964 5.638H8.519l-5.965-5.638" stroke-width="2.55"></path></svg>
+        </span>
+        <span>Discover our legacy models</span>
+      </a>
+    </div>
+  <script>
+    // Smoothly transition about-current-grid background to white on scroll
+    document.addEventListener('DOMContentLoaded', function() {
+      var gridSection = document.querySelector('.about-current-grid');
+      function onScrollGridBg() {
+        if (!gridSection) return;
+        var rect = gridSection.getBoundingClientRect();
+        var windowHeight = window.innerHeight || document.documentElement.clientHeight;
+        // Add class when top of grid is near top of viewport
+        if (rect.top < windowHeight * 0.15) {
+          gridSection.classList.add('scrolled-white');
+        } else {
+          gridSection.classList.remove('scrolled-white');
+        }
+      }
+      window.addEventListener('scroll', onScrollGridBg);
+      onScrollGridBg();
+    });
+  </script>
+  </section>
+
   <script>
     // Simple JS include for navbar (works for static sites)
     fetch('components/navbar.html')
       .then(res => res.text())
       .then(html => {
         document.getElementById('navbar-include').innerHTML = html;
+        // Hamburger/overlay logic after navbar is injected
+        var openBtn = document.getElementById('open-overlay-navbar');
+        var closeBtn = document.getElementById('overlay-navbar-close');
+        var overlay = document.getElementById('overlay-navbar');
+        var navbar = document.querySelector('.main-navbar-bar');
+        var lastScrollY = window.scrollY;
+        var ticking = false;
+        if (openBtn && overlay) {
+          openBtn.onclick = function() {
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            navbar.classList.add('hide-navbar');
+          };
+        }
+        if (closeBtn && overlay) {
+          closeBtn.onclick = function() {
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+            navbar.classList.remove('hide-navbar');
+          };
+        }
+        if (overlay) {
+          overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) {
+              overlay.classList.remove('open');
+              document.body.style.overflow = '';
+              navbar.classList.remove('hide-navbar');
+            }
+          });
+        }
+        // Hide navbar on scroll down, show on scroll up
+        function onScroll() {
+          if (overlay.classList.contains('open')) return;
+          if (window.scrollY > lastScrollY && window.scrollY > 40) {
+            navbar.classList.add('hide-navbar');
+          } else {
+            navbar.classList.remove('hide-navbar');
+          }
+          lastScrollY = window.scrollY;
+        }
+        window.addEventListener('scroll', function() {
+          if (!ticking) {
+            window.requestAnimationFrame(function() {
+              onScroll();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
       });
 
     // Parallax effect for about-hero-overlay
@@ -281,7 +421,8 @@
 </html>
 <div class="org-card-video-overlay" id="org-card-video-overlay" style="display:none;">
   <div class="org-card-video-container">
-    <iframe id="org-card-youtube" src="" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+    <iframe id="org-card-youtube" src="" title="YouTube video player" frameborder="0" allow="accelerometer;
+     autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
     <button class="org-card-video-close" id="close-org-card-video">&times;</button>
   </div>
 </div>

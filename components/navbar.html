@@ -1,239 +1,171 @@
 <style>
-.lux-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 0 30px;
-  background: rgba(0,0,0,0.7);
-  backdrop-filter: blur(8px);
-  font-family: 'Montserrat', Arial, sans-serif;
-  z-index: 100;
-  height: 80px;
-  transition: background 0.4s, backdrop-filter 0.4s;
-}
-.nav-left, .nav-right {
-  display: flex;
-  gap: 32px;
-}
-.nav-center { display: flex; justify-content: center; align-items: center; }
-.nav-logo { width: 5rem; display: block; }
-.lux-nav a {
-  color: #fff;
-  font-size: 1rem;
-  font-family: 'Montserrat', Arial, sans-serif;
-  font-weight: 200;
-  text-decoration: none;
-  letter-spacing: 0.04em;
-  transition: color 0.3s;
-  padding: 8px 0;
-  position: relative;
-}
-.lux-nav a:hover { color: #e6c36b; font-weight: 400; text-decoration: underline; }
-.nav-hamburger {
-  display: none;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  width: 40px;
-  height: 40px;
-  cursor: pointer;
-  z-index: 1201;
-}
-.nav-hamburger span {
-  display: block;
-  width: 28px;
-  height: 3px;
-  margin: 5px 0;
-  background: #fff;
-  border-radius: 2px;
-  transition: 0.3s;
-}
-.nav-hamburger.open span:nth-child(1) { transform: translateY(8px) rotate(45deg); }
-.nav-hamburger.open span:nth-child(2) { opacity: 0; }
-.nav-hamburger.open span:nth-child(3) { transform: translateY(-8px) rotate(-45deg); }
-.nav-overlay {
-  display: none;
-  position: fixed;
-  top: 0; left: 0; right: 0; bottom: 0;
-  width: 100vw;
-  height: 100vh;
-  background: rgba(20,20,20,0.92);
-  backdrop-filter: blur(16px);
-  z-index: 1200;
-  opacity: 0;
-  transition: opacity 0.4s;
-}
-.nav-overlay.open {
-  display: flex;
-  opacity: 1;
-  align-items: center;
-  justify-content: center;
-  transition: opacity 0.4s;
-}
-.nav-overlay-content {
-  display: flex;
-  flex-direction: column;
-  gap: 2.5rem;
-  align-items: center;
-}
-.nav-overlay-content a {
-  color: #fff;
-  font-size: 2rem;
-  font-family: 'Montserrat', Arial, sans-serif;
-  text-decoration: none;
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  transition: color 0.2s;
-}
-.nav-overlay-content a:hover { color: #e6c36b; }
-.nav-overlay .nav-close {
-  position: absolute;
-  top: 32px;
-  right: 38px;
-  font-size: 2.5rem;
-  color: #fff;
-  background: none;
-  border: none;
-  cursor: pointer;
-  z-index: 1300;
-  transition: color 0.2s;
-}
-.nav-overlay .nav-close:hover { color: #e6c36b; }
-body.nav-open { overflow: hidden; }
-@media (max-width: 900px) {
-  .nav-hamburger { display: flex; }
-  .nav-left, .nav-right { display: none !important; }
-  .nav-center { margin: 0 auto; }
-  .nav-logo { width: 3.2rem; }
-}
+  .main-navbar-bar {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 18px 0 18px;
+    background: transparent;
+    position: relative;
+    transition: background 0.3s;
+    z-index: 100;
+  }
+  .main-navbar-bar.navbar-white-bg {
+    background: #414141;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
 </style>
-<nav class="lux-nav">
-  <div class="nav-hamburger" id="nav-hamburger">
-    <span></span><span></span><span></span>
+
+<link rel="stylesheet" href="assets/css/style.css">
+
+<!-- Main Navbar Bar with Hamburger -->
+<div class="main-navbar-bar">
+  <div class="main-navbar-logo">
+    <a href="index.html">
+      <img src="assets/logo/makuta logo_white copy.png" alt="Makuta Logo" class="navbar-logo navbar-logo-light">
+      <img src="assets/logo/makuta logo_black copy.png" alt="Makuta Logo" class="navbar-logo navbar-logo-dark" style="display:none;">
+    </a>
   </div>
-  <div class="nav-overlay" id="nav-overlay">
-    <button class="nav-close" id="nav-close" aria-label="Close Menu">&times;</button>
-    <div class="nav-overlay-content">
-      <a href="index.html">Home</a>
-      <a href="../about.html">About</a>
-      <a href="#projects">Projects</a>
-      <a href="blog.html">Blogs</a>
-      <a href="contact.html">Contact</a>
-      <a href="careers.html">Careers</a>
+  <button class="main-navbar-hamburger" id="open-overlay-navbar" aria-label="Open Menu">
+    <span class="hamburger-icon-svg">
+      <svg class="hamburger-icon-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="32" height="32">
+        <path class="line line-top" d="M0 9.5h25" style="fill: none; stroke: #fff; stroke-width: 2.5px;" />
+        <path class="line line-bottom" d="M0 15.5h25" style="fill: none; stroke: #fff; stroke-width: 2.5px;" />
+      </svg>
+      <svg class="hamburger-icon-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="32" height="32" style="display:none;">
+        <path class="line line-top" d="M0 9.5h25" style="fill: none; stroke: #222; stroke-width: 2.5px;" />
+        <path class="line line-bottom" d="M0 15.5h25" style="fill: none; stroke: #222; stroke-width: 2.5px;" />
+      </svg>
+    </span>
+  </button>
+</div>
+<style>
+  .main-navbar-bar {
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 18px 0 18px;
+    background: none;
+    background: #222;
+    position: relative;
+    transition: background 0.3s;
+    z-index: 100;
+  }
+  .navbar-logo {
+    height: 40px;
+    vertical-align: middle;
+    transition: opacity 0.2s;
+  }
+  .navbar-logo-light {
+    display: inline;
+  }
+  .navbar-logo-dark {
+    display: none;
+  }
+  .main-navbar-bar.navbar-white-bg .navbar-logo-light {
+    display: none;
+  }
+  .main-navbar-bar.navbar-white-bg .navbar-logo-dark {
+    display: inline;
+  }
+  .hamburger-icon-light {
+    display: inline;
+  }
+  .hamburger-icon-dark {
+    display: none;
+  }
+  .main-navbar-bar.navbar-white-bg .hamburger-icon-light {
+    display: none;
+  }
+  .main-navbar-bar.navbar-white-bg .hamburger-icon-dark {
+    display: inline;
+  }
+</style>
+
+<!-- Overlay Navigation -->
+<div id="overlay-navbar" class="overlay-navbar">
+  <div class="overlay-navbar-header" style="display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 2vw 2vw 0 2vw;">
+    <button class="overlay-navbar-close" id="overlay-navbar-close" aria-label="Close">
+      <span class="close-x"></span>
+    </button>
+    <div class="overlay-navbar-logo">
+      <img src="assets/logo/makuta-logo-white.svg" alt="Makuta Logo">
     </div>
   </div>
-  <div class="nav-left">
-    <a href="about.html">About</a>
-    <a href="#projects">Projects</a>
-    <a href="blog.html">Blogs</a>
-  </div>
-  <div class="nav-center">
-    <a href="index.html"><img src="assets/logo/makuta-logo-white.svg" alt="Makuta Developers Logo" class="nav-logo"></a>
-  </div>
-  <div class="nav-right">
-    <a href="contact.html">Contact</a>
-    <a href="careers.html">Careers</a>
-  </div>
-</nav>
-<script>
-const hamburger = document.getElementById('nav-hamburger');
-const overlay = document.getElementById('nav-overlay');
-const closeBtn = document.getElementById('nav-close');
-hamburger.addEventListener('click', () => {
-  overlay.classList.add('open');
-  hamburger.classList.add('open');
-  document.body.classList.add('nav-open');
-});
-closeBtn.addEventListener('click', () => {
-  overlay.classList.remove('open');
-  hamburger.classList.remove('open');
-  document.body.classList.remove('nav-open');
-});
-overlay.addEventListener('click', (e) => {
-  if (e.target === overlay) {
-    overlay.classList.remove('open');
-    hamburger.classList.remove('open');
-    document.body.classList.remove('nav-open');
-  }
-});
-</script>
-<nav class="lux-nav">
-  <div class="nav-hamburger" id="nav-hamburger">
-    <span></span><span></span><span></span>
-  </div>
-  <div class="nav-overlay" id="nav-overlay">
-    <div class="nav-overlay-content">
-      <a href="index.html">Home</a>
-      <a href="../about.html">About</a>
-      <a href="#projects">Projects</a>
-      <div class="nav-submenu">
-        <a href="projects/completed.html">Completed Projects</a>
-        <a href="projects/under-construction.html">Under Construction</a>
-        <a href="projects/upcoming.html">Upcoming Projects</a>
-      </div>
-      <a href="blog.html">Blogs</a>
-      <div class="nav-submenu">
-        <a href="blogpostings/news-1.html">News 1</a>
-        <a href="blogpostings/news-2.html">News 2</a>
-        <a href="blogpostings/news-3.html">News 3</a>
-      </div>
+  <div class="overlay-navbar-main">
+    <nav class="overlay-navbar-links-large">
+      <a href="about.html">Legacy</a>
+      <a href="blog.html">News Corner</a>
+      <a href="projects.html">Projects</a>
       <a href="contact.html">Contact</a>
-      <a href="careers.html">Careers</a>
-      <div class="nav-submenu">
-        <a href="jobpostings/job-detail.html">Job Detail</a>
-        <a href="jobpostings/warehouse-operative.html">Warehouse Operative</a>
+    </nav>
+    <div class="overlay-navbar-links-small">
+      <div>
+        <a href="careers.html">Careers</a><br>
+        <a href="#">Privacy Policy</a><br>
+        <a href="contact.html">Contact</a>
+      </div>
+      <div>
+        <a href="careers.html">Careers</a><br>
+        <a href="#">Press</a><br>
+        <a href="#">Factory tours</a>
       </div>
     </div>
   </div>
-  <div class="nav-left">
-    <a href="../about.html">About</a>
-    <a href="projects.html">Projects</a>
-    <a href="../blog.html">Blogs</a>
-  </div>
-  <div class="nav-center">
-    <a href="../index.html"><img src="../assets/logo/makuta-logo-white.svg" alt="Makuta Developers Logo" class="nav-logo"></a>
-  </div>
-  <div class="nav-right">
-    <a href="../contact.html">Contact</a>
-    <a href="../careers.html">Careers</a>
-  </div>
+</div>
 
-</nav>
 <script>
-// Hamburger menu toggle
-const hamburger = document.getElementById('nav-hamburger');
-const overlay = document.getElementById('nav-overlay');
-hamburger.addEventListener('click', () => {
-  overlay.classList.toggle('open');
-  hamburger.classList.toggle('open');
-  document.body.classList.toggle('nav-open');
-});
-overlay.addEventListener('click', (e) => {
-  if (e.target === overlay) {
-    overlay.classList.remove('open');
-    hamburger.classList.remove('open');
-    document.body.classList.remove('nav-open');
-  }
-});
-</script>
+// Hamburger opens overlay navbar and scroll hide/show logic
+document.addEventListener('DOMContentLoaded', function() {
+  var openBtn = document.getElementById('open-overlay-navbar');
+  var closeBtn = document.getElementById('overlay-navbar-close');
+  var overlay = document.getElementById('overlay-navbar');
+  var navbar = document.querySelector('.main-navbar-bar');
+  var lastScrollY = window.scrollY;
+  var ticking = false;
 
-  <script>
-    // Navbar scroll hide/show and translucent background after 100vh
-    let lastScroll = 0;
-    const nav = document.querySelector('.lux-nav');
-    window.addEventListener('scroll', () => {
-      const currentScroll = window.pageYOffset;
-      if (currentScroll > lastScroll && currentScroll > 80) {
-        // Hide navbar on scroll down
-        nav.style.transform = 'translateY(-100%)';
-      } else {
-        // Show navbar on scroll up
-        nav.style.transform = 'translateY(0)';
+  if (openBtn && overlay) {
+    openBtn.onclick = function() {
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+  }
+  if (closeBtn && overlay) {
+    closeBtn.onclick = function() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+  }
+  if (overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        navbar.classList.remove('hide-navbar');
       }
-      lastScroll = currentScroll;
     });
-  </script>
+  }
+
+  // Hide navbar on scroll down, show on scroll up
+  function onScroll() {
+    if (overlay.classList.contains('open')) return; // Don't hide if overlay is open
+    if (window.scrollY > lastScrollY && window.scrollY > 40) {
+      navbar.classList.add('hide-navbar');
+    } else if (window.scrollY < lastScrollY) {
+      navbar.classList.remove('hide-navbar');
+    }
+    lastScrollY = window.scrollY;
+  }
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        onScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+});
+</script>
+

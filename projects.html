@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Projects - Makuta Developers</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="assets/css/style.css">
+  <link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
+</head>
+<body>
+    <header>
+      <div id="navbar-include"></div>
+    </header>
+    <main>
+      <section class="projects-hero">
+        <h4 class="projects-hero-title">CURRENT</h4>
+      </section>
+      <section class="projects-current">
+        <div class="legacy-prompt">
+          <div class="legacy-prompt-icon">
+            <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
+          </div>
+          <span class="legacy-prompt-text">Discover our legacy<br>models</span>
+        </div>
+        <div class="projects-current-grid">
+          <div class="project-tile">
+            <img src="assets/images/Horizon.png" alt="CC850" class="project-tile-img">
+            <div class="project-tile-info">
+              <span class="project-tile-title">Horizon</span>
+            </div>
+          </div>
+          <div class="project-tile">
+            <img src="assets/images/Nirvana.png" alt="GEMERA" class="project-tile-img">
+            <div class="project-tile-info">
+              <span class="project-tile-title">Nirvana<span>
+            </div>
+          </div>
+          <div class="project-tile">
+            <img src="assets/images/Taranga.png" alt="JESKO ABSOLUT" class="project-tile-img">
+            <div class="project-tile-info">
+              <span class="project-tile-title">Taranga</span>
+            </div>
+          </div>
+          <div class="project-tile">
+            <img src="assets/images/Horizon.png" alt="JESKO ATTACK" class="project-tile-img">
+            <div class="project-tile-info">
+              <span class="project-tile-title">JESKO ATTACK</span>
+            </div>
+          </div>
+        </div>
+      </section>
+             <section class="projects-legacy">
+        <h2 class="projects-legacy-title">LEGACY</h2>
+        <div class="projects-legacy-grid">
+          <div class="project-tile legacy">
+            <img src="assets/images/Horizon.png" alt="REGERA" class="project-tile-img">
+            <div class="project-tile-info legacy-info">
+              <span class="project-tile-title legacy-title">REGERA</span>
+            </div>
+          </div>
+          <div class="project-tile legacy">
+            <img src="assets/images/Nirvana.png" alt="AGERA RS" class="project-tile-img">
+            <div class="project-tile-info legacy-info">
+              <span class="project-tile-title legacy-title">AGERA RS</span>
+            </div>
+          </div>
+          <div class="project-tile legacy">
+            <img src="assets/images/Taranga.png" alt="LEGACY 3" class="project-tile-img">
+            <div class="project-tile-info legacy-info">
+              <span class="project-tile-title legacy-title">LEGACY 3</span>
+            </div>
+          </div>
+          <div class="project-tile legacy">
+            <img src="assets/images/Horizon.png" alt="LEGACY 4" class="project-tile-img">
+            <div class="project-tile-info legacy-info">
+              <span class="project-tile-title legacy-title">LEGACY 4</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+  <script>
+    // Simple JS include for navbar (works for static sites)
+    fetch('components/navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar-include').innerHTML = html;
+        
+        var navbar = document.querySelector('.main-navbar-bar');
+        var lastScrollY = window.scrollY;
+        var ticking = false;
+        const legacySection = document.querySelector('.projects-legacy');
+
+        function onScroll() {
+          // Hide/show navbar on scroll
+          if (window.scrollY > lastScrollY && window.scrollY > 40) {
+            navbar.classList.add('hide-navbar');
+          } else {
+            navbar.classList.remove('hide-navbar');
+          }
+          lastScrollY = window.scrollY;
+
+          // Change navbar color based on background
+          if (legacySection) {
+            const legacySectionTop = legacySection.offsetTop;
+            const navbarHeight = navbar.offsetHeight;
+            if (window.scrollY > legacySectionTop - navbarHeight) {
+              navbar.classList.add('navbar-white-bg');
+            } else {
+              navbar.classList.remove('navbar-white-bg');
+            }
+          }
+        }
+
+        window.addEventListener('scroll', function() {
+          if (!ticking) {
+            window.requestAnimationFrame(function() {
+              onScroll();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      });
+  </script>
+     
+    </main>
+    
+  
+</body>
+</html>
+
+
+       <script src="assets/js/main.js"></script>
+  <script>
+    // Simple JS include for navbar (works for static sites)
+    fetch('components/navbar.html')
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById('navbar-include').innerHTML = html;
+        // Hamburger/overlay logic after navbar is injected
+        var openBtn = document.getElementById('open-overlay-navbar');
+        var closeBtn = document.getElementById('overlay-navbar-close');
+        var overlay = document.getElementById('overlay-navbar');
+        var navbar = document.querySelector('.main-navbar-bar');
+        var lastScrollY = window.scrollY;
+        var ticking = false;
+        if (openBtn && overlay) {
+          openBtn.onclick = function() {
+            overlay.classList.add('open');
+            document.body.style.overflow = 'hidden';
+            navbar.classList.add('hide-navbar');
+          };
+        }
+        if (closeBtn && overlay) {
+          closeBtn.onclick = function() {
+            overlay.classList.remove('open');
+            document.body.style.overflow = '';
+            navbar.classList.remove('hide-navbar');
+          };
+        }
+        if (overlay) {
+          overlay.addEventListener('click', function(e) {
+            if (e.target === overlay) {
+              overlay.classList.remove('open');
+              document.body.style.overflow = '';
+              navbar.classList.remove('hide-navbar');
+            }
+          });
+        }
+        // Hide navbar on scroll down, show on scroll up
+        function onScroll() {
+          if (overlay.classList.contains('open')) return;
+          if (window.scrollY > lastScrollY && window.scrollY > 40) {
+            navbar.classList.add('hide-navbar');
+          } else {
+            navbar.classList.remove('hide-navbar');
+          }
+          lastScrollY = window.scrollY;
+        }
+        window.addEventListener('scroll', function() {
+          if (!ticking) {
+            window.requestAnimationFrame(function() {
+              onScroll();
+              ticking = false;
+            });
+            ticking = true;
+          }
+        });
+      });
+  </script>
+     
+    </main>
+
+
+<script>
+// Hamburger opens overlay navbar and scroll hide/show logic
+document.addEventListener('DOMContentLoaded', function() {
+  var openBtn = document.getElementById('open-overlay-navbar');
+  var closeBtn = document.getElementById('overlay-navbar-close');
+  var overlay = document.getElementById('overlay-navbar');
+  var navbar = document.querySelector('.main-navbar-bar');
+  var lastScrollY = window.scrollY;
+  var ticking = false;
+
+  if (openBtn && overlay) {
+    openBtn.onclick = function() {
+      overlay.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    };
+  }
+  if (closeBtn && overlay) {
+    closeBtn.onclick = function() {
+      overlay.classList.remove('open');
+      document.body.style.overflow = '';
+    };
+  }
+  if (overlay) {
+    overlay.addEventListener('click', function(e) {
+      if (e.target === overlay) {
+        overlay.classList.remove('open');
+        document.body.style.overflow = '';
+        navbar.classList.remove('hide-navbar');
+      }
+    });
+  }
+
+  // Hide navbar on scroll down, show on scroll up
+  function onScroll() {
+    if (overlay.classList.contains('open')) return; // Don't hide if overlay is open
+    if (window.scrollY > lastScrollY && window.scrollY > 40) {
+      navbar.classList.add('hide-navbar');
+    } else if (window.scrollY < lastScrollY) {
+      navbar.classList.remove('hide-navbar');
+    }
+    lastScrollY = window.scrollY;
+  }
+  window.addEventListener('scroll', function() {
+    if (!ticking) {
+      window.requestAnimationFrame(function() {
+        onScroll();
+        ticking = false;
+      });
+      ticking = true;
+    }
+  });
+});
+</script>
+
+  </body>
+  </html>

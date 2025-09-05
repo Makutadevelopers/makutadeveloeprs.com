@@ -1,87 +1,21 @@
-<style>
-  .main-navbar-bar {
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 18px 0 18px;
-    background: transparent;
-    position: relative;
-    transition: background 0.3s;
-    z-index: 100;
-  }
-  .main-navbar-bar.navbar-white-bg {
-    background: #414141;
-    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
-  }
-</style>
-
-<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="../assets/css/style.css">
 
 <!-- Main Navbar Bar with Hamburger -->
-<div class="main-navbar-bar">
+<div class="main-navbar-bar" style="background: rgba(0,0,0,0.68); backdrop-filter: blur(2px);">
   <div class="main-navbar-logo">
-    <a href="index.html">
-      <img src="assets/logo/makuta logo_white copy.png" alt="Makuta Logo" class="navbar-logo navbar-logo-light">
-      <img src="assets/logo/makuta logo_black copy.png" alt="Makuta Logo" class="navbar-logo navbar-logo-dark" style="display:none;">
+    <a href="../index.html">
+      <img src="/assets/logo/makuta logo_white copy.png" alt="Makuta Logo">
     </a>
   </div>
   <button class="main-navbar-hamburger" id="open-overlay-navbar" aria-label="Open Menu">
     <span class="hamburger-icon-svg">
-      <svg class="hamburger-icon-light" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="32" height="32">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="32" height="32">
         <path class="line line-top" d="M0 9.5h25" style="fill: none; stroke: #fff; stroke-width: 2.5px;" />
         <path class="line line-bottom" d="M0 15.5h25" style="fill: none; stroke: #fff; stroke-width: 2.5px;" />
-      </svg>
-      <svg class="hamburger-icon-dark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 25 25" width="32" height="32" style="display:none;">
-        <path class="line line-top" d="M0 9.5h25" style="fill: none; stroke: #222; stroke-width: 2.5px;" />
-        <path class="line line-bottom" d="M0 15.5h25" style="fill: none; stroke: #222; stroke-width: 2.5px;" />
       </svg>
     </span>
   </button>
 </div>
-<style>
-  .main-navbar-bar {
-    width: 100vw;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 18px 18px 0 18px;
-    background: none;
-    background: #222;
-    position: relative;
-    transition: background 0.3s;
-    z-index: 100;
-  }
-  .navbar-logo {
-    height: 40px;
-    vertical-align: middle;
-    transition: opacity 0.2s;
-  }
-  .navbar-logo-light {
-    display: inline;
-  }
-  .navbar-logo-dark {
-    display: none;
-  }
-  .main-navbar-bar.navbar-white-bg .navbar-logo-light {
-    display: none;
-  }
-  .main-navbar-bar.navbar-white-bg .navbar-logo-dark {
-    display: inline;
-  }
-  .hamburger-icon-light {
-    display: inline;
-  }
-  .hamburger-icon-dark {
-    display: none;
-  }
-  .main-navbar-bar.navbar-white-bg .hamburger-icon-light {
-    display: none;
-  }
-  .main-navbar-bar.navbar-white-bg .hamburger-icon-dark {
-    display: inline;
-  }
-</style>
 
 <!-- Overlay Navigation -->
 <div id="overlay-navbar" class="overlay-navbar">
@@ -90,7 +24,7 @@
       <span class="close-x"></span>
     </button>
     <div class="overlay-navbar-logo">
-      <img src="assets/logo/makuta-logo-white.svg" alt="Makuta Logo">
+      <img src="/assets/logo/makuta-logo-white.svg" alt="Makuta Logo">
     </div>
   </div>
   <div class="overlay-navbar-main">
@@ -129,12 +63,14 @@ document.addEventListener('DOMContentLoaded', function() {
     openBtn.onclick = function() {
       overlay.classList.add('open');
       document.body.style.overflow = 'hidden';
+      navbar.classList.add('hide-navbar');
     };
   }
   if (closeBtn && overlay) {
     closeBtn.onclick = function() {
       overlay.classList.remove('open');
       document.body.style.overflow = '';
+      navbar.classList.remove('hide-navbar');
     };
   }
   if (overlay) {
@@ -156,6 +92,7 @@ document.addEventListener('DOMContentLoaded', function() {
       navbar.classList.remove('hide-navbar');
     }
     lastScrollY = window.scrollY;
+
   }
   window.addEventListener('scroll', function() {
     if (!ticking) {

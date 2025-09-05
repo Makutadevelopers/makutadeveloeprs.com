@@ -1,10 +1,177 @@
-<footer class="makuta-footer-fixed">
-  <div class="makuta-footer-content">
-    <span>&copy; 2025 Makuta Developers. All rights reserved.</span>
-    <span class="footer-links">
-      <a href="/careers.html">Careers</a> |
-      <a href="/contact.html">Contact</a> |
-      <a href="/">Home</a>
-    </span>
+<!-- Koenigsegg-style Footer Component -->
+<footer class="footer-ksg">
+  <div class="footer-ksg-main">
+    <div class="footer-ksg-left">
+      <div class="footer-ksg-quote">
+        <span>THE</span><br>
+        <span>SHOW</span><br>
+        <span>MUST</span><br>
+        <span>GO ON</span>
+      </div>
+      <div class="footer-ksg-socials">
+  <a href="#" aria-label="Instagram"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384015.png" alt="Instagram" /></a>
+        <!-- <a href="#" aria-label="Twitter"><img src="/assets/images/social-twitter.svg" alt="Twitter" /></a> -->
+        <!-- <a href="#" aria-label="Facebook"><img src="/assets/images/social-facebook.svg" alt="Facebook" /></a> -->
+  <a href="#" aria-label="YouTube"><img src="https://cdn-icons-png.flaticon.com/512/3669/3669688.png" alt="YouTube" /></a>
+  <a href="#" aria-label="LinkedIn"><img src="https://cdn-icons-png.flaticon.com/512/1384/1384014.png" alt="LinkedIn" /></a>
+      </div>
+    </div>
+    <div class="footer-ksg-links">
+      <div>
+        <a href="#">Legacy</a><br>
+        <a href="#">Projects</a><br>
+        <a href="#">Join Us</a><br>
+        <a href="#">Contact</a>
+      </div>
+      <div>
+        <a href="#">Commercial Projects</a><br>
+        <a href="#">Residential Projects</a><br>
+        <a href="#">Openplots</a>
+      </div>
+      <div>     
+        <a href="#">Careers</a><br>
+        <a href="#">Press</a><br>
+        <a href="#">Quality Testing</a>
+      </div>
+    </div>
+    <div class="footer-ksg-logo">
+      <img src="/assets/logo/favicon.svg" alt="Makuta Logo" style="width:48px;height:auto;" />
+    </div>
+  </div>
+  <div class="footer-ksg-bottom">
+    <div class="footer-ksg-copyright">
+      Copyright © since 2016 – Makuta Developers
+    </div>
+    <div class="footer-ksg-bottom-links">
+      <a href="#">Sitemap</a>
+      <!-- <a href="#">Cookie Policy</a> -->
+      <a href="#">Legal Links</a>
+      <!-- <a href="#">Investor relations</a> -->
+    </div>
   </div>
 </footer>
+<style>
+.footer-ksg {
+  background: #fff;
+  color: #111;
+  padding: 0 0 0 0;
+  border-top: 1px solid #eee;
+  font-family: 'Montserrat', Arial, sans-serif;
+}
+.footer-ksg-main {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 48px 0 32px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  gap: 32px;
+}
+.footer-ksg-left {
+  flex: 1 1 260px;
+  min-width: 220px;
+}
+.footer-ksg-quote {
+  font-size: 3.2rem;
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+  margin-bottom: 32px;
+}
+.footer-ksg-socials a {
+  display: inline-block;
+  margin-right: 12px;
+  opacity: 0.7;
+  transition: opacity 0.18s;
+}
+.footer-ksg-socials a:hover {
+  opacity: 1;
+}
+.footer-ksg-socials img {
+  width: 28px;
+  height: 28px;
+}
+.footer-ksg-links {
+  display: flex;
+  flex: 2 1 400px;
+  justify-content: space-between;
+  min-width: 320px;
+  gap: 48px;
+  font-size: 1.1rem;
+  margin-top: 18px;
+}
+.footer-ksg-links a {
+  color: #111;
+  text-decoration: none;
+  margin-bottom: 8px;
+  display: inline-block;
+  transition: color 0.18s;
+}
+.footer-ksg-links a:hover {
+  color: #e10600;
+}
+.footer-ksg-logo {
+  flex: 0 0 60px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+  min-width: 60px;
+}
+.footer-ksg-bottom {
+  border-top: 1px solid #eee;
+  padding: 18px 0 12px 0;
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.98rem;
+  color: #888;
+}
+.footer-ksg-bottom-links a {
+  color: #888;
+  text-decoration: none;
+  margin-left: 18px;
+  font-size: 0.98rem;
+  transition: color 0.18s;
+}
+.footer-ksg-bottom-links a:hover {
+  color: #e10600;
+}
+@media (max-width: 900px) {
+  .footer-ksg-main {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 32px 0 18px 0;
+    gap: 18px;
+  }
+  .footer-ksg-quote {
+    font-size: 2.1rem;
+  }
+  .footer-ksg-links {
+    min-width: 0;
+    gap: 24px;
+    font-size: 1rem;
+  }
+}
+@media (max-width: 600px) {
+  .footer-ksg-main {
+    padding: 18px 0 8px 0;
+  }
+  .footer-ksg-quote {
+    font-size: 1.2rem;
+  }
+  .footer-ksg-links {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.98rem;
+  }
+  .footer-ksg-bottom {
+    flex-direction: column;
+    gap: 8px;
+    font-size: 0.92rem;
+  }
+}
+</style>

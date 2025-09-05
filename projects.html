@@ -6,137 +6,625 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="assets/css/style.css">
   <link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:400,600,900&display=swap" rel="stylesheet">
 </head>
 <body>
-    <header>
-      <div id="navbar-include"></div>
-    </header>
-    <main>
-      <section class="projects-hero">
-        <h4 class="projects-hero-title">CURRENT</h4>
-      </section>
-      <section class="projects-current">
-        <div class="legacy-prompt">
-          <div class="legacy-prompt-icon">
-            <svg width="24" height="24" fill="none" stroke="#fff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M19 12l-7 7-7-7"/></svg>
-          </div>
-          <span class="legacy-prompt-text">Discover our legacy<br>models</span>
-        </div>
-        <div class="projects-current-grid">
-          <div class="project-tile">
-            <img src="assets/images/Horizon.png" alt="CC850" class="project-tile-img">
-            <div class="project-tile-info">
-              <span class="project-tile-title">Horizon</span>
-            </div>
-          </div>
-          <div class="project-tile">
-            <img src="assets/images/Nirvana.png" alt="GEMERA" class="project-tile-img">
-            <div class="project-tile-info">
-              <span class="project-tile-title">Nirvana<span>
-            </div>
-          </div>
-          <div class="project-tile">
-            <img src="assets/images/Taranga.png" alt="JESKO ABSOLUT" class="project-tile-img">
-            <div class="project-tile-info">
-              <span class="project-tile-title">Taranga</span>
-            </div>
-          </div>
-          <div class="project-tile">
-            <img src="assets/images/Horizon.png" alt="JESKO ATTACK" class="project-tile-img">
-            <div class="project-tile-info">
-              <span class="project-tile-title">JESKO ATTACK</span>
-            </div>
-          </div>
-        </div>
-      </section>
-             <section class="projects-legacy">
-        <h2 class="projects-legacy-title">LEGACY</h2>
-        <div class="projects-legacy-grid">
-          <div class="project-tile legacy">
-            <img src="assets/images/Horizon.png" alt="REGERA" class="project-tile-img">
-            <div class="project-tile-info legacy-info">
-              <span class="project-tile-title legacy-title">REGERA</span>
-            </div>
-          </div>
-          <div class="project-tile legacy">
-            <img src="assets/images/Nirvana.png" alt="AGERA RS" class="project-tile-img">
-            <div class="project-tile-info legacy-info">
-              <span class="project-tile-title legacy-title">AGERA RS</span>
-            </div>
-          </div>
-          <div class="project-tile legacy">
-            <img src="assets/images/Taranga.png" alt="LEGACY 3" class="project-tile-img">
-            <div class="project-tile-info legacy-info">
-              <span class="project-tile-title legacy-title">LEGACY 3</span>
-            </div>
-          </div>
-          <div class="project-tile legacy">
-            <img src="assets/images/Horizon.png" alt="LEGACY 4" class="project-tile-img">
-            <div class="project-tile-info legacy-info">
-              <span class="project-tile-title legacy-title">LEGACY 4</span>
-            </div>
-          </div>
-        </div>
-      </section>
 
+  <style>
+  /* ...existing code... */
+  .cta-f1 {
+    width: 100%;
+    background: var(--color-red);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 48px 0 48px 0;
+    margin: 0 0 0 0;
+    /* border-radius: 16px 16px 0 0; */
+  }
+  .cta-f1-main {
+    max-width: 900px;
+    width: 100%;
+    text-align: left;
+    padding: 32px 24px;
+    color: var(--color-text);
+    font-family: 'Montserrat', sans-serif;
+  }
+  .cta-f1-title {
+    font-size: 2.6rem;
+    font-weight: 150;
+    color: var(--color-text);
+    margin-bottom: 18px;
+    text-transform: uppercase;
+    letter-spacing: -2px;
+  }
+  .cta-f1-desc {
+    font-size: 1.1rem;
+    color: var(--color-text);
+    margin-bottom: 24px;
+    font-weight: 150;
+  }
+  .cta-f1-btn {
+    background: var(--color-text);
+    color: var(--color-red);
+    border: none;
+    border-radius: 24px;
+    padding: 12px 32px;
+    font-size: 1.1rem;
+    font-family: 'Montserrat', sans-serif;
+    font-weight: 150;
+    cursor: pointer;
+    transition: background 0.18s, color 0.18s;
+    box-shadow: 0 2px 8px var(--shadow-light);
+  }
+  .cta-f1-btn:hover {
+    /* background: var(--color-gold); */
+    color: var(--color-bg);
+  }
+   
+    .projects-hero-grid {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      background: #000;
+      min-height: 100vh;
+      padding: 0;
+      position: relative;
+    }
+    .legacy-prompt-vertical {
+      width: 260px;
+      min-width: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-left: 32px;
+      padding-right: 16px;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+    }
+    .legacy-prompt-icon-hex {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .legacy-prompt-label {
+      color: #fff;
+      font-size: 1rem;
+      text-align: left;
+      line-height: 1.4;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 36px;
+      width: 100%;
+      margin: 8rem 4rem;
+      padding: 48px 0 48px 0;
+    }
+    .project-card-grid {
+      background: #181818;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      min-height: 340px;
+      transition: box-shadow 0.2s;
+      height: 340px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+      cursor: pointer;
+    }
+    .project-card-grid.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .project-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1) 0.08s;
+    }
+    .project-card-grid:hover .project-card-img,
+    .project-card-grid:focus-within .project-card-img {
+      transform: scale(1.06);
+    }
+    .project-card-footer {
+      width: 100%;
+      text-align: left;
+      padding: 24px 32px 24px 32px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .project-card-title {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: 0.03em;
+    }
+    .project-card-underline {
+      height: 2px;
+      background: #fff;
+      width: 60px;
+      margin: 10px 0 0 0;
+      opacity: 0.7;
+    }
+    .legacy-section {
+      background: #fff;
+      padding: 80px 0 80px 0;
+      min-height: 40vh;
+      width: 100%;
+    }
+    .legacy-title {
+      color: #111;
+      font-size: 2.6rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      letter-spacing: 0.04em;
+    }
+    .legacy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .legacy-card {
+      background: #181818;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.13);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      min-height: 220px;
+      height: 220px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+      cursor: pointer;
+    }
+    .legacy-card.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .legacy-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .legacy-card-footer {
+      width: 100%;
+      text-align: left;
+      padding: 18px 24px 18px 24px;
+      background: linear-gradient(0deg, #181818 90%, transparent 100%);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .legacy-card-title {
+      font-size: 1.1rem;
+      color: #fff;
+      letter-spacing: 0.03em;
+    }
+    @media (max-width: 900px) {
+      .projects-hero-grid {
+        flex-direction: column;
+      }
+      .legacy-prompt-vertical {
+        width: 100%;
+        min-width: unset;
+        height: auto;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 24px 0 0 24px;
+        position: static;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        gap: 24px;
+        padding: 24px ;
+      }
+      .project-card-grid {
+        height: 220px;
+        min-height: 220px;
+      }
+      .project-card-img {
+        height: 100%;
+      }
+      .project-card-footer {
+        padding: 18px 18px 18px 18px;
+      }
+      .legacy-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .legacy-card {
+        height: 160px;
+        min-height: 160px;
+      }
+      .legacy-card-footer {
+        padding: 12px 14px 12px 14px;
+      }
+    }
+  </style>
+  <header>
+    <div id="navbar-include"></div>
+  
+  </header>
+  <main>
+    <section class="projects-hero-grid">
+      <div class="legacy-prompt-vertical">
+        <div class="legacy-prompt-icon-hex">
+          <svg width="32" height="32" viewBox="0 0 32 32" fill="none">
+            <polygon points="16,2 30,9 30,23 16,30 2,23 2,9" stroke="#fff" stroke-width="2" fill="none"/>
+            <polyline points="16,10 16,22" stroke="#fff" stroke-width="2"/>
+            <polyline points="12,18 16,22 20,18" stroke="#fff" stroke-width="2"/>
+          </svg>
+        </div>
+        <div class="legacy-prompt-label">Discover our legacy<br>Projects</div>
+      </div>
+      <div class="projects-grid">
+        <div class="project-card-grid" data-href="https://makutahorizon.com/">
+          <img src="assets/images/Horizon.png" alt="Horizon" class="project-card-img">
+          <div class="project-card-footer">
+            <span class="project-card-title">HORIZON</span>
+            <div class="project-card-underline"></div>
+          </div>
+        </div>
+        <div class="project-card-grid" data-href="https://www.makutanirvana.in/">
+          <img src="assets/images/Nirvana.png" alt="Nirvana" class="project-card-img">
+          <div class="project-card-footer">
+            <span class="project-card-title">NIRVANA</span>
+            <div class="project-card-underline"></div>
+          </div>
+        </div>
+        <div class="project-card-grid" data-href="https://www.makutataranga.com/">
+          <img src="assets/images/Taranga.png" alt="Taranga" class="project-card-img">
+          <div class="project-card-footer">
+            <span class="project-card-title">TARANGA</span>
+            <div class="project-card-underline"></div>
+          </div>
+        </div>
+        <div class="project-card-grid" data-href="#">
+          <img src="assets/images/Horizon.png" alt="Horizon 2" class="project-card-img">
+          <div class="project-card-footer">
+            <span class="project-card-title">Green Woods</span>
+            <div class="project-card-underline"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+   
+    <section class="legacy-section">
+
+      <h2 class="legacy-title">Commercial Projects</h2>
+      <div class="legacy-grid">
+        <div class="legacy-card" data-href="#">
+          <img src="assets/images/legacy-regera.jpg" alt="Makuta Prime" class="legacy-card-img">
+          <div class="legacy-card-footer">
+            <span class="legacy-card-title">Makuta Prime</span>
+          </div>
+        </div>
+        <div class="legacy-card" data-href="#">
+          <img src="assets/images/legacy-agera-rs.jpg" alt="Makuta Aruna Arcade" class="legacy-card-img">
+          <div class="legacy-card-footer">
+            <span class="legacy-card-title">Makuta Aruna Arcade</span>
+          </div>
+        </div>
+       
+      </div>
+    </section>
+
+     <section class="legacy-section">
+
+      <h2 class="legacy-title">Legacy Projects</h2>
+      <div class="legacy-grid">
+        <div class="legacy-card" data-href="#">
+          <img src="assets/images/legacy-regera.jpg" alt="MySpace2" class="legacy-card-img">
+          <div class="legacy-card-footer">
+            <span class="legacy-card-title">MySpace2</span>
+          </div>
+        </div>
+        <div class="legacy-card" data-href="#">
+          <img src="assets/images/legacy-agera-rs.jpg" alt="MySpace" class="legacy-card-img">
+          <div class="legacy-card-footer">
+            <span class="legacy-card-title">MySpace</span>
+          </div>
+        </div>
+          <div class="legacy-card" data-href="#">
+          <img src="assets/images/legacy-regera.jpg" alt="GeethaSerene" class="legacy-card-img">
+          <div class="legacy-card-footer">
+            <span class="legacy-card-title">GeethaSerene</span>
+          </div>
+        </div>
+        <div class="legacy-card" data-href="#">
+          <img src="assets/images/legacy-agera-rs.jpg" alt="Begonia Homes" class="legacy-card-img">
+          <div class="legacy-card-footer">
+            <span class="legacy-card-title">Begonia Homes</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="cta-f1">
+    <div class="cta-f1-main">
+      <h2 class="cta-f1-title">Check out how Makuta works</h2>
+      <p class="cta-f1-desc">Lorem ipsum dolor, sit amet consectetur adipisicing elit.</p>
+      <button class="cta-f1-btn">Let's go</button>
+    </div>
+  </section>
+
+
+      <div id="footer-include"></div>
+  
+  <div id="footer-include"></div>
   <script>
-    // Simple JS include for navbar (works for static sites)
-    fetch('components/navbar.html')
-      .then(res => res.text())
-      .then(html => {
-        document.getElementById('navbar-include').innerHTML = html;
-        
-        var navbar = document.querySelector('.main-navbar-bar');
-        var lastScrollY = window.scrollY;
-        var ticking = false;
-        const legacySection = document.querySelector('.projects-legacy');
-
-        function onScroll() {
-          // Hide/show navbar on scroll
-          if (window.scrollY > lastScrollY && window.scrollY > 40) {
-            navbar.classList.add('hide-navbar');
-          } else {
-            navbar.classList.remove('hide-navbar');
-          }
-          lastScrollY = window.scrollY;
-
-          // Change navbar color based on background
-          if (legacySection) {
-            const legacySectionTop = legacySection.offsetTop;
-            const navbarHeight = navbar.offsetHeight;
-            if (window.scrollY > legacySectionTop - navbarHeight) {
-              navbar.classList.add('navbar-white-bg');
-            } else {
-              navbar.classList.remove('navbar-white-bg');
-            }
-          }
-        }
-
-        window.addEventListener('scroll', function() {
-          if (!ticking) {
-            window.requestAnimationFrame(function() {
-              onScroll();
-              ticking = false;
-            });
-            ticking = true;
+    fetch('components/footer.html').then(res => res.text()).then(html => {
+      document.getElementById('footer-include').innerHTML = html;
+    });
+  </script>
+ 
+  <style>
+  /* ...existing code... */
+   
+    .projects-hero-grid {
+      display: flex;
+      flex-direction: row;
+      align-items: flex-start;
+      background: #000;
+      min-height: 100vh;
+      padding: 0;
+      position: relative;
+    }
+    .legacy-prompt-vertical {
+      width: 260px;
+      min-width: 180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding-left: 32px;
+      padding-right: 16px;
+      height: 100vh;
+      position: sticky;
+      top: 0;
+    }
+    .legacy-prompt-icon-hex {
+      margin-bottom: 18px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .legacy-prompt-label {
+      color: #fff;
+      font-size: 1rem;
+      text-align: left;
+      line-height: 1.4;
+    }
+    .projects-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      gap: 36px;
+      width: 100%;
+      margin: 8rem 4rem;
+      padding: 48px 0 48px 0;
+    }
+    .project-card-grid {
+      background: #181818;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.18);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      min-height: 340px;
+      transition: box-shadow 0.2s;
+      height: 340px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+      cursor: pointer;
+    }
+    .project-card-grid.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .project-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s cubic-bezier(0.4,0,0.2,1) 0.08s;
+    }
+    .project-card-grid:hover .project-card-img,
+    .project-card-grid:focus-within .project-card-img {
+      transform: scale(1.06);
+    }
+    .project-card-footer {
+      width: 100%;
+      text-align: left;
+      padding: 24px 32px 24px 32px;
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .project-card-title {
+      font-size: 1.2rem;
+      font-weight: 300;
+      color: #fff;
+      letter-spacing: 0.03em;
+    }
+    .project-card-underline {
+      height: 2px;
+      background: #fff;
+      width: 60px;
+      margin: 10px 0 0 0;
+      opacity: 0.7;
+    }
+    .legacy-section {
+      background: #fff;
+      padding: 80px 0 80px 0;
+      min-height: 40vh;
+      width: 100%;
+    }
+    .legacy-title {
+      color: #111;
+      font-size: 2.6rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      letter-spacing: 0.04em;
+    }
+    .legacy-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 36px;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .legacy-card {
+      background: #181818;
+      overflow: hidden;
+      box-shadow: 0 4px 32px rgba(0,0,0,0.13);
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      position: relative;
+      min-height: 220px;
+      height: 220px;
+      opacity: 0;
+      transform: translateY(40px);
+      transition: opacity 0.7s cubic-bezier(0.4,0,0.2,1), transform 0.7s cubic-bezier(0.4,0,0.2,1);
+      cursor: pointer;
+    }
+    .legacy-card.visible {
+      opacity: 1;
+      transform: none;
+    }
+    .legacy-card-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+    .legacy-card-footer {
+      width: 100%;
+      text-align: left;
+      padding: 18px 24px 18px 24px;
+      background: linear-gradient(0deg, #181818 90%, transparent 100%);
+      position: absolute;
+      bottom: 0;
+      left: 0;
+    }
+    .legacy-card-title {
+      font-size: 1.1rem;
+      color: #fff;
+      letter-spacing: 0.03em;
+    }
+    @media (max-width: 900px) {
+      .projects-hero-grid {
+        flex-direction: column;
+      }
+      .legacy-prompt-vertical {
+        width: 100%;
+        min-width: unset;
+        height: auto;
+        flex-direction: row;
+        justify-content: flex-start;
+        padding: 24px 0 0 24px;
+        position: static;
+      }
+      .projects-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(4, 1fr);
+        gap: 24px;
+        padding: 24px ;
+      }
+      .project-card-grid {
+        height: 220px;
+        min-height: 220px;
+      }
+      .project-card-img {
+        height: 100%;
+      }
+      .project-card-footer {
+        padding: 18px 18px 18px 18px;
+      }
+      .legacy-grid {
+        grid-template-columns: 1fr;
+        gap: 18px;
+      }
+      .legacy-card {
+        height: 160px;
+        min-height: 160px;
+      }
+      .legacy-card-footer {
+        padding: 12px 14px 12px 14px;
+      }
+    }
+  </style>
+  <script>
+    // On-scroll fade-up animation for cards
+    (function(){
+      function revealOnScroll(entries, observer) {
+        entries.forEach(entry => {
+          if(entry.isIntersecting) {
+            entry.target.classList.add('visible');
+            observer.unobserve(entry.target);
           }
         });
+      }
+      var observer = new IntersectionObserver(revealOnScroll, { threshold: 0.18 });
+      document.querySelectorAll('.project-card-grid, .legacy-card').forEach(card => {
+        observer.observe(card);
       });
+    })();
+    // Make cards clickable and accessible
+    (function(){
+      document.querySelectorAll('.project-card-grid, .legacy-card').forEach(card => {
+        var href = card.getAttribute('data-href');
+        if(href) {
+          card.addEventListener('click', function(){ window.location.href = href; });
+          card.setAttribute('tabindex', '0');
+          card.addEventListener('keydown', function(e){
+            if(e.key === 'Enter' || e.key === ' ') {
+              e.preventDefault();
+              window.location.href = href;
+            }
+          });
+        }
+      });
+    })();
+
+    // Horizontal scroll for featured cards
+    (function(){
+      var container = document.querySelector('.scroll-cards-container');
+      var leftBtn = document.querySelector('.scroll-btn.left');
+      var rightBtn = document.querySelector('.scroll-btn.right');
+      if(container && leftBtn && rightBtn) {
+        leftBtn.onclick = function() {
+          container.scrollBy({ left: -340, behavior: 'smooth' });
+        };
+        rightBtn.onclick = function() {
+          container.scrollBy({ left: 340, behavior: 'smooth' });
+        };
+      }
+    })();
   </script>
-     
-    </main>
-    
-  
-</body>
-</html>
 
-
-       <script src="assets/js/main.js"></script>
-  <script>
-    // Simple JS include for navbar (works for static sites)
-    fetch('components/navbar.html')
-      .then(res => res.text())
-      .then(html => {
+    <script>
+      fetch('components/navbar.html').then(res => res.text()).then(html => {
         document.getElementById('navbar-include').innerHTML = html;
         // Hamburger/overlay logic after navbar is injected
         var openBtn = document.getElementById('open-overlay-navbar');
@@ -173,7 +661,7 @@
           if (overlay.classList.contains('open')) return;
           if (window.scrollY > lastScrollY && window.scrollY > 40) {
             navbar.classList.add('hide-navbar');
-          } else {
+          } else if (window.scrollY < lastScrollY) {
             navbar.classList.remove('hide-navbar');
           }
           lastScrollY = window.scrollY;
@@ -188,64 +676,6 @@
           }
         });
       });
-  </script>
-     
-    </main>
-
-
-<script>
-// Hamburger opens overlay navbar and scroll hide/show logic
-document.addEventListener('DOMContentLoaded', function() {
-  var openBtn = document.getElementById('open-overlay-navbar');
-  var closeBtn = document.getElementById('overlay-navbar-close');
-  var overlay = document.getElementById('overlay-navbar');
-  var navbar = document.querySelector('.main-navbar-bar');
-  var lastScrollY = window.scrollY;
-  var ticking = false;
-
-  if (openBtn && overlay) {
-    openBtn.onclick = function() {
-      overlay.classList.add('open');
-      document.body.style.overflow = 'hidden';
-    };
-  }
-  if (closeBtn && overlay) {
-    closeBtn.onclick = function() {
-      overlay.classList.remove('open');
-      document.body.style.overflow = '';
-    };
-  }
-  if (overlay) {
-    overlay.addEventListener('click', function(e) {
-      if (e.target === overlay) {
-        overlay.classList.remove('open');
-        document.body.style.overflow = '';
-        navbar.classList.remove('hide-navbar');
-      }
-    });
-  }
-
-  // Hide navbar on scroll down, show on scroll up
-  function onScroll() {
-    if (overlay.classList.contains('open')) return; // Don't hide if overlay is open
-    if (window.scrollY > lastScrollY && window.scrollY > 40) {
-      navbar.classList.add('hide-navbar');
-    } else if (window.scrollY < lastScrollY) {
-      navbar.classList.remove('hide-navbar');
-    }
-    lastScrollY = window.scrollY;
-  }
-  window.addEventListener('scroll', function() {
-    if (!ticking) {
-      window.requestAnimationFrame(function() {
-        onScroll();
-        ticking = false;
-      });
-      ticking = true;
-    }
-  });
-});
-</script>
-
-  </body>
-  </html>
+    </script>
+</body>
+</html>

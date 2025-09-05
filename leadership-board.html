@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Leadership Board - Makuta Developers</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="stylesheet" href="assets/css/style.css">
+	<link rel="icon" type="image/svg+xml" href="/assets/logo/favicon.svg">
+</head>
+<body>
+	<header>
+		<div id="navbar-include"></div>
+		<script>
+			fetch('components/navbar.html').then(res => res.text()).then(html => {
+				document.getElementById('navbar-include').innerHTML = html;
+			});
+		</script>
+	</header>
+	<main>
+		<section class="leadership-hero">
+			<div class="leadership-hero-bg"></div>
+			<h1 class="leadership-title">Corporate Governance</h1>
+		</section>
+		<section class="leadership-board">
+			<div class="leadership-board-grid">
+				<div class="leadership-board-col">
+					<h2 class="leadership-board-heading">Leadership</h2>
+					<hr class="leadership-board-divider">
+					<div class="leadership-board-names">
+						<div>Elon<br>Musk</div>
+						<div>Tom<br>Zhu</div>
+						<div>Vaibhav<br>Taneja</div>
+					</div>
+				</div>
+				<div class="leadership-board-col">
+					<h2 class="leadership-board-heading">Board of Directors</h2>
+					<hr class="leadership-board-divider">
+					<div class="leadership-board-names">
+						<div>Elon<br>Musk</div>
+						<div>Robyn M.<br>Denholm</div>
+						<div>Ira<br>Ehrenpreis</div>
+						<div>Joe<br>Gebbia</div>
+						<div>James<br>Murdoch</div>
+						<div>Kimbal<br>Musk</div>
+						<div>JB<br>Straubel</div>
+						<div>Kathleen<br>Wilson-Thompson</div>
+						<div>Jack<br>Hartung</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</main>
+	<div id="footer-include"></div>
+	<script>
+		fetch('components/footer.html').then(res => res.text()).then(html => {
+			document.getElementById('footer-include').innerHTML = html;
+		});
+	</script>
+	<style>
+		body {
+			background: var(--color-bg);
+			color: var(--color-text);
+			font-family: 'Montserrat', sans-serif;
+			font-weight: 150;
+			margin: 0;
+			min-height: 100vh;
+		}
+		.leadership-hero {
+			position: relative;
+			width: 100%;
+			height: 340px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			background: var(--color-bg);
+			margin-bottom: -60px;
+		}
+		.leadership-hero-bg {
+			position: absolute;
+			top: 0; left: 0; width: 100%; height: 100%;
+			background: url('assets/images/tesla-cars.jpg') center center/cover no-repeat;
+			opacity: 0.92;
+			z-index: 1;
+		}
+		.leadership-title {
+			position: relative;
+			z-index: 2;
+			font-size: 2.8rem;
+			font-weight: 150;
+			color: var(--color-text);
+			text-align: center;
+			margin: 0;
+			letter-spacing: -1px;
+		}
+		.leadership-board {
+			background: var(--color-surface);
+			padding: 64px 0 64px 0;
+			width: 100%;
+			min-height: 40vh;
+			display: flex;
+			align-items: flex-start;
+			justify-content: center;
+		}
+		.leadership-board-grid {
+			display: flex;
+			flex-direction: row;
+			gap: 64px;
+			max-width: 1100px;
+			width: 100%;
+			justify-content: center;
+		}
+		.leadership-board-col {
+			flex: 1;
+			background: none;
+			padding: 0 24px;
+			min-width: 260px;
+		}
+		.leadership-board-heading {
+			font-size: 1.2rem;
+			font-weight: 150;
+			color: var(--color-dark);
+			margin-bottom: 8px;
+			text-align: left;
+			letter-spacing: 0.02em;
+			border: none;
+		}
+		.leadership-board-divider {
+			border: none;
+			border-top: 2px solid var(--color-border);
+			margin: 0 0 24px 0;
+			width: 80%;
+		}
+		.leadership-board-names {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			gap: 24px 0;
+			font-size: 1.1rem;
+			color: var(--color-dark);
+			font-weight: 150;
+			text-align: left;
+		}
+		@media (max-width: 900px) {
+			.leadership-board-grid {
+				flex-direction: column;
+				gap: 32px;
+			}
+			.leadership-board-names {
+				grid-template-columns: repeat(2, 1fr);
+			}
+		}
+		@media (max-width: 600px) {
+			.leadership-hero {
+				height: 180px;
+			}
+			.leadership-title {
+				font-size: 1.5rem;
+			}
+			.leadership-board {
+				padding: 32px 0;
+			}
+			.leadership-board-col {
+				padding: 0 8px;
+			}
+			.leadership-board-names {
+				font-size: 1rem;
+			}
+		}
+	</style>
+</body>
+</html>
